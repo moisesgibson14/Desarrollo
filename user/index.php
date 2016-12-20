@@ -269,72 +269,72 @@
             </ol>   
         <div class="profile-env">
             <section class="profile-feed">
-                
                 <!-- profile post form -->
-                <form class="profile-post-form" method="post">
-                    
-                    <textarea class="form-control autogrow" placeholder="What's on your mind?" style="resize: none;"></textarea>
-                    
-                    <div class="form-options">
-                        
-                        <div class="post-type">
-                        
+                <form class="profile-post-form" method="post" action="../php/post.php">                    
+                    <textarea class="form-control autogrow" name="mensaje" placeholder="What's on your mind?" style="resize: none;"></textarea>                    
+                    <div class="form-options">                        
+                        <div class="post-type">                
                             <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
                                 <i class="entypo-camera"></i>
                             </a>
-                        
                             <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
                                 <i class="entypo-attach"></i>
                             </a>
-                        
                             <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Check-in">
                                 <i class="entypo-location"></i>
                             </a>
+                            <input type="hidden" name="idusuario" value={{perfil.idUsuarios}} />
                         </div>
-                        
                         <div class="post-submit">
-                            <button type="button" class="btn btn-primary">Publicar</button>
+                            <button id="send" class="btn btn-primary" >Publicar</button> 
                         </div>
-                        
                     </div>
-                </form>
-                                
+                </form>  
             </section>
         </div>
 
-            <h1>Hola! Esto es lo que se tiene para hoy!</h1>            
-            <div class="row">                
-                <div class="col-md-6">        
-                    <div class="panel minimal minimal-gray">
-                        <div class="panel-heading">
-                            <div class="panel-title"><h4>Minimal Panel</h4></div>
-                            <div class="panel-options">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li>
-                                    <li><a href="#profile-2" data-toggle="tab">Second Tab</a></li>
-                                </ul>
-                            </div>
-                        </div>                                    
-                        <div class="panel-body">
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="profile-1">
-                                    <strong>Rank tall boy man them over post now</strong>                
-                                        <p>Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on.</p>
-                                
-                                        <p>Sing long her way size. Waited end mutual missed myself the little sister one. So in pointed or chicken cheered neither spirits invited. Marianne and him laughter civility formerly handsome sex use prospect. Hence we doors is given rapid scale above am. Difficult ye mr delivered behaviour by an. If their woman could do wound on. You folly taste hoped their above are and but.</p>
+            <h1>Publicaciones.</h1>            
+            <div class="row">   
+                <div class="row">
+                    <div class="col-sm-6" style="">
+                        <div ng-repeat="publicacion in post">
+                        <h3><img class="img-rounded" width="30" src="{{publicacion.fotoperfil}}">{{publicacion.nombre}} {{publicacion.apellidos}}</h3>
+                        <h5>{{publicacion.fecha}}</h5>
+                        <p>{{publicacion.mensaje}}.</p>
+                        </div>
+                    </div>                
+                    <div class="col-md-6">        
+                        <div class="panel minimal minimal-gray">
+                            <div class="panel-heading">
+                                <div class="panel-title"><h4>Minimal Panel</h4></div>
+                                    <div class="panel-options">
+                                        <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#profile-1" data-toggle="tab">First Tab</a></li>
+                                        <li><a href="#profile-2" data-toggle="tab">Second Tab</a></li>
+                                    </ul>
                                 </div>
-                            
-                                <div class="tab-pane" id="profile-2">
-                                    <strong>Entire any had depend and figure winter</strong>                            
-                                    <p>There worse by an of miles civil. Manner before lively wholly am mr indeed expect. Among every merry his yet has her. You mistress get dashwood children off. Met whose marry under the merit. In it do continual consulted no listening. Devonshire sir sex motionless travelling six themselves. So colonel as greatly shewing herself observe ashamed. Demands minutes regular ye to detract is.</p>
+                            </div>                                    
+                            <div class="panel-body">
+                                <div class="tab-content">
+                                    <div class="tab-pane active" id="profile-1">
+                                        <strong>Rank tall boy man them over post now</strong>                
+                                            <p>Boy desirous families prepared gay reserved add ecstatic say. Replied joy age visitor nothing cottage. Mrs door paid led loud sure easy read. Hastily at perhaps as neither or ye fertile tedious visitor. Use fine bed none call busy dull when. Quiet ought match my right by table means. Principles up do in me favourable affronting. Twenty mother denied effect we to do on.</p>
+                                    
+                                            <p>Sing long her way size. Waited end mutual missed myself the little sister one. So in pointed or chicken cheered neither spirits invited. Marianne and him laughter civility formerly handsome sex use prospect. Hence we doors is given rapid scale above am. Difficult ye mr delivered behaviour by an. If their woman could do wound on. You folly taste hoped their above are and but.</p>
+                                    </div>
                                 
-                                    <p>For norland produce age wishing. To figure on it spring season up. Her provision acuteness had excellent two why intention. As called mr needed praise at. Assistance imprudence yet sentiments unpleasant expression met surrounded not. Be at talked ye though secure nearer.</p>
-                                
-                                    <p>Letter wooded direct two men indeed income sister. Impression up admiration he by partiality is. Instantly immediate his saw one day perceived. Old blushes respect but offices hearted minutes effects. Written parties winding oh as in without on started. Residence gentleman yet preserved few convinced. Coming regret simple longer little am sister on. Do danger in to adieus ladies houses oh eldest. Gone pure late gay ham. They sigh were not find are rent.</p>
-                                </div>
-                            </div>                        
-                        </div>                    
-                </div>                
+                                    <div class="tab-pane" id="profile-2">
+                                        <strong>Entire any had depend and figure winter</strong>                            
+                                        <p>There worse by an of miles civil. Manner before lively wholly am mr indeed expect. Among every merry his yet has her. You mistress get dashwood children off. Met whose marry under the merit. In it do continual consulted no listening. Devonshire sir sex motionless travelling six themselves. So colonel as greatly shewing herself observe ashamed. Demands minutes regular ye to detract is.</p>
+                                    
+                                        <p>For norland produce age wishing. To figure on it spring season up. Her provision acuteness had excellent two why intention. As called mr needed praise at. Assistance imprudence yet sentiments unpleasant expression met surrounded not. Be at talked ye though secure nearer.</p>
+                                    
+                                        <p>Letter wooded direct two men indeed income sister. Impression up admiration he by partiality is. Instantly immediate his saw one day perceived. Old blushes respect but offices hearted minutes effects. Written parties winding oh as in without on started. Residence gentleman yet preserved few convinced. Coming regret simple longer little am sister on. Do danger in to adieus ladies houses oh eldest. Gone pure late gay ham. They sigh were not find are rent.</p>
+                                    </div>
+                                </div>                        
+                            </div>                    
+                        </div>                
+                    </div>
             </div>
         </div>
                 <div class="row" ng-repeat="perfil in data">
@@ -414,10 +414,10 @@
                     .error(function() {
                         $scope.data = "error in fetching dat";
                     });
-                    $scope.count= 0;
-                    $scope.myFunc = function(){
-                        $scope.count++;
-                    }
+                    $http.post("../php/verpost.php").success(function(post){                        
+                            $scope.post = post;
+                            console.log($scope.post);                
+                        })                    
                 });      
         </script>              
 </body>
