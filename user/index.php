@@ -293,17 +293,17 @@
             </section>
         </div>
 
-            <h1>Publicaciones.</h1>            
+            <h3 class="title">Publicaciones.</h3>            
             <div class="row">   
                 <div class="row">
-                    <div class="col-sm-6" style="">
-                        <div ng-repeat="publicacion in post">
+                    <div class="col-sm-6" style="overflow:scroll;height:450px;">
+                        <div ng-repeat="publicacion in post" class="panel panel-default">
                         <h3><img class="img-rounded" width="30" src="{{publicacion.fotoperfil}}">{{publicacion.nombre}} {{publicacion.apellidos}}</h3>
                         <h5>{{publicacion.fecha}}</h5>
                         <p>{{publicacion.mensaje}}.</p>
                         </div>
-                    </div>                
-                    <div class="col-md-6">        
+                    </div>                    
+                    <div class="col-md-6 panel panel-default">     
                         <div class="panel minimal minimal-gray">
                             <div class="panel-heading">
                                 <div class="panel-title"><h4>Minimal Panel</h4></div>
@@ -337,12 +337,7 @@
                     </div>
             </div>
         </div>
-                <div class="row" ng-repeat="perfil in data">
-                    <div class="col-sm-4" class="row">
-                        <h3 ng-click="mostrartablas()">{{perfil.nombreproyecto}}</h3>
-                        <p>{{perfil.descripcion}}</p> 
-                        <img align="center" src="../assets/images/file2.png">
-                    </div>
+                <div class="row panel panel-default" ng-repeat="perfil in data">                    
                     <div class="col-sm-4">
                         <h3>Columna 2</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
@@ -359,7 +354,7 @@
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
                         cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>                    
-                        <img align="center" src="../assets/images/highlights-3-photoshop.png">
+                        <img align="center" src="../assets/images/file2.png">
                     </div>                                        
                 </div>
 
