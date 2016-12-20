@@ -1,8 +1,8 @@
 <!-- Sesiones Usuarios  --> 
 <?php
     session_start();
-    include 'assets/php/serv.php';
-    if(isset($_SESSION['user'])){
+    include 'php/serv.php';
+    if(isset($_SESSION['email'])){
     echo '<script> window.location="user/index.php"; </script>';
     }
 ?>
@@ -115,17 +115,14 @@
         <div class="modal fade" id="ventana1">
             <div class="modal-dialog" id="login">
                 <div class="modal-content" >
-                    <div class="modal-header" >
-                        <form action="assets/php/validar.php" method="post" name="userForm">
-                            <h3 align="center" class="modal-title">Iniciar sesión </h3>
-                            <h4 align="center" class="modal-title">E-Mail:</h4>
-                            <input type="email" class="form-control" placeholder="E-Mail" required  name="email">
-                            <h4 align="center" class="modal-title">Contraseña:</h4>                             
-                            <input type="password" class="form-control"  placeholder="Contraseña" required="" name="password">
-                            <h4 align="center" class="modal-title">No. Empleado:</h4>
+                    <div class="modal-header"  >
+                        <form action="php/validar.php" method="post" name="userForm">                                                            
+                            <h3 class="title" style="color: white">Login.</h3>
+                            <input type="email" class="form-control" placeholder="E-Mail" required  name="email">                            
+                            <input type="password" class="form-control"  placeholder="Contraseña" required="" name="password">                            
                             <input type="password" class="form-control" placeholder="Numero de Empleado" required="" name="id_empleado">
                             </br>                        
-                            <input align="center" type="submit" class="btn btn-primary" name="login">                            
+                            <input align="center" type="submit" class="btn btn-primary" name="login" value="Ingresar">                            
                         </form> 
                     </div>
                 </div>
@@ -961,10 +958,8 @@
         <script src="assets/owl.carousel/owl.carousel.min.js"></script>
         <script src="assets/js/ajaxchimp.js"></script>
         <script src="assets/js/jquery-jvectormap-2.0.3.min.js"></script>
-        <script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>            
         <script src="assets/js/scripts.js"></script>
-        <script src="assets/js/angular.js"></script>
-        <script src="assets/angular/controler.js"></script>
             
     </body>
 

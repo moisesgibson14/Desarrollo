@@ -223,7 +223,7 @@ button:focus {
 .form-control {
     height: 40px;
     padding: 8px 20px;
-    color: #fff;
+    color: black;
     font-size: 13px;
     border: 0;
     border-bottom: 1px solid #3b4149;
@@ -232,17 +232,6 @@ button:focus {
 }
 .form-control:focus {
     border-color: #2ecc71;
-}
-
-.form-control2 {
-    height: 40px;
-    padding: 8px 20px;
-    color: black;
-    font-size: 13px;
-    border: 0;
-    border-bottom: 1px solid #3b4149;
-    border-radius: 0;
-    background-color: white;
 }
 .form-control2:focus {
     border-color: black;
@@ -1601,4 +1590,66 @@ img.mfp-img {
     .footer-menu {
         text-align: center;
     }
+}
+
+
+input {
+  border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
+after { clear: both; }
+
+#login {
+  margin: 50px auto;
+  width: 320px;
+}
+
+#login form {
+  margin: auto;
+  padding: 22px 22px 22px 22px;
+  width: 100%;
+  border-radius: 5px;
+  background: #282e33;
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #434a52;
+}
+
+
+#login form input[type="email"] {
+  background-color: #3b4148;
+  border-radius: 0px 3px 3px 0px;
+  color: #a9a9a9;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 235px;
+  height: 50px;
+}
+
+#login form input[type="password"] {
+  background-color: #3b4148;
+  border-radius: 0px 3px 3px 0px;
+  color: #a9a9a9;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 235px;
+  height: 50px;
+}
+
+#login form input[type="submit"] {
+  background: #b5cd60;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+#login form input[type="submit"]:hover {
+  background: #16aa56;
 }

@@ -1,20 +1,19 @@
-<?php 
-	$bd = "chat";
-	$server = "localhost";
-	$user = "root";
-	$password = "";
+<?php 	
+    session_start();
+    include '../../php/serv.php';    
+    if(isset($_SESSION['email'])){
+	$conect = @mysqli_connect("localhost","root","","mibase") or die("No se encontró el servidor");
+	if(!$conect) die("Error de conexion".mysqli_connect_error());
 
-	$conexion = mysqli_connect($server,$user,$password,$bd);
-	if(!$conexion) die("Error de conexion".mysqli_connect_error());
-
-	$user = $_POST['user'];
+	$usuario=$_SESSION['email'];
 	$message = $_POST['message'];
-	$fecha_hora_actual = date('Y-m-d H:i:s');
-
-	$sql = "INSERT INTO conversation (usuario,mensaje,fechayhora) values('$user','$message','$fecha_hora_actual')";
-	$result = mysqli_query($conexion, $sql);
+	$fecha = date('Y-m-d');
+	$idUsuarios =$_POST['idusuario'];
+	$sql = "INSERT INTO chat (nombreusuario,mensaje,fecha,Usuarios_idUsuarios) values('$usuario','$message','$fecha','$idUsuarios')";
+	$result = mysqli_query($conect, $sql);
 	
 	if ($result) 
 		# code...
-		echo "Mensaje Registrado";	
+		echo "Mensaje Registrado";
+		}	
  ?>

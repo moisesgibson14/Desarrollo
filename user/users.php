@@ -1,12 +1,12 @@
 <?php 
 session_start();
-include '../assets/php/serv.php';
-if(isset($_SESSION['user'])){
+include '../php/serv.php';
+if(isset($_SESSION['email'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>    
+        <!--  Scripts -->        
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,18 +15,17 @@ if(isset($_SESSION['user'])){
         <!-- Bootstrap -->
         <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="../assets/css/metisMenu.min.css" rel="stylesheet">
-        <!-- Style CSS -->
-        <link href="../style.css" rel="stylesheet">        
-        <link rel="stylesheet" type="text/css" href="../assets/css/design.css">
+        <link href="../assets/css/metisMenu.css" rel="stylesheet">
+        <!-- Style CSS -->        
+        <link rel="stylesheet" href="../assets/css/design.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.css">
-        
 
     </head>
     
-    <body ng-app="fetch" id="page-top" data-spy="scroll" data-target=".navbar">        
-    <div ng-controller="dbCtrl" id="wrapper">        
+    <body  ng-app="fetch" id="page-top" data-spy="scroll" data-target=".navbar">        
+    <div id="wrapper" ng-controller="dbCtrl">        
             <!-- Navigation ---------- start -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation">
+        <nav class="navbar navbar-default navbar-static-top" style="position: fixed;" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -34,13 +33,11 @@ if(isset($_SESSION['user'])){
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <img src="../assets/images/logo2.png" alt="logo">                
-
-            </div>
-            <!-- /.navbar-header --> 
-
-            <ul class="nav navbar-top-links navbar-right">
+                <img src="../assets/images/logooficial.png" alt="logo">                                
                 
+            </div>
+            
+            <ul class="nav navbar-top-links navbar-right">      
                 <li class="dropdown" >                    
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="mensajes">
                         <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
@@ -159,32 +156,31 @@ if(isset($_SESSION['user'])){
                     <!-- /.dropdown-alerts -->
                 </li>
                 <!-- /.dropdown -->
-            
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="Perfil">
-                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-user">
-                        <li ng-repeat="perfil in data">
-                            <a href="#"><i class="fa fa-user fa-fw"></i>{{perfil.nombreusuario}} </a>
+
+                <li class="profile-info dropdown" ng-repeat="perfil in data">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">                            
+                            <img src="{{perfil.fotoperfil}}" alt="" class="img-circle" width="40" title="{{perfil.nombre}}" />                            
+                    </a> 
+                    <ul class="dropdown-menu dropdown-user">                        
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i>{{perfil.nombre}} <br>[{{perfil.email}}]</a>                            
                         </li>                        
                         <li>
-                            <a href="#"><i class="fa fa-gear fa-fw"></i>Configuracion</a>                        
+                            <a href="personal/configuracion.php"><i class="fa fa-gear fa-fw"></i>Configuracion</a>                        
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-male fa-fw"></i> Mi Cuenta</a>
+                            <a href="profile.php"><i class="fa fa-male fa-fw"></i> Mi Cuenta</a>
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="../assets/php/logout.php"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
+                            <a href="../php/logout.php"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
                     </ul>
-                    <!-- /.dropdown-user -->
-                </li>
-        
+                </li> 
     
                 <!-- /.dropdown -->
             </ul>
+
             
             <!-- ---------------------------------------- -->
 
@@ -192,42 +188,71 @@ if(isset($_SESSION['user'])){
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
-                        </li>                        
-                        <li>
-                            <a href="forms.html"><i class="fa fa-users fa-fw"></i> Usuarios</a>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Buscar.." name="q">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                </div>
+                            </div>    
                         </li>
+                        <li>
+                            <a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
+                        </li>
+                        <li>
+                            <a href="documentos.php"><i class="fa fa-folder-open-o fa-fw"></i> Documentos</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-envelope-o fa-fw"></i> Mailbox<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="users.php"><i class="fa fa-users fa-fw"></i> Usuarios</a>
+                                </li>                    
+                                <li>
+                                    <a href="chat/chat.php"><i class="fa fa-wechat fa-fw"></i> Chat</a>
+                                </li>                    
+                                <li>
+                                    <a href="inbox.php"><i class="fa fa-inbox fa-fw"></i> Bandeja de entrada</a>
+                                </li>
+                                <li>
+                                    <a href="redactarm.php"><i class="fa fa-pencil fa-fw"></i> Crear Mensaje</a>
+                                </li>
+                                <li>
+                                    <a href="mensajes.php"><i class="fa fa-eye fa-fw"></i> Ver Mensajes</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>                                                
+                        <li>
+                            <a href="#"><i class="fa fa-paperclip fa-fw"></i> Utilidades <span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="calendario.php"><i class="fa fa-calendar fa-fw"></i>Calendario</a>
+                                </li>                        
+                                <li>
+                                    <a href="notas.php"><i class="fa fa-edit fa-fw"></i> Notas</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>                                                
+                        
                         <li>
                             <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Estadisticas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="flot.html">Graficas</a>
+                                    <a href="graficas.php">Graficas</a>
                                 </li>
                                 <li>
-                                    <a href="morris.html">Estados de Produccion</a>
+                                    <a href="estados.php">Estados de Produccion</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
+                        </li>                        
                         <li>
-                            <a href="estadisticas.php" ng-click="mostrartablas()"  data-toggle="collapse" data-target="#demo"><i class="fa fa-table fa-fw"></i> Tables</a>
-                        </li>
-                        <li>
-                            <a href="forms.html"><i class="fa fa-edit fa-fw"></i> Documentos</a>
-                        </li>
-                        
-                        <li>
-                            <a href="#"><i class="fa fa-wrench fa-fw"></i> UI Elements<span class="fa arrow"></span></a>
+                            <a href="herramientas.php"><i class="fa fa-wrench fa-fw"></i> Herramientas<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="panels-wells.html">Panels and Wells</a>
+                                    <a href="panels-wells.html">Actualizar Información </a>
                                 </li>
-                                <li>
-                                    <a href="buttons.html">Buttons</a>
-                                </li>
-                                <li>
-                                    <a href="notifications.html">Notifications</a>
-                                </li>                                
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>                                                
@@ -238,45 +263,98 @@ if(isset($_SESSION['user'])){
             <!-- /.navbar-static-side -->
         </nav>
         
-        <div id="page-wrapper">    
-            <div class="container" >
+        
+        <div id="page-wrapper">         
+            <ol class="breadcrumb bc-3" >
+                <li>
+                    <a href="index.html"><i class="fa fa-home"></i> Inicio</a>
+                </li>                
+                <li class="active">
+                    <strong>Usuarios</strong>                     
+                </li>
+            </ol>           
+        <div class="row">
+            <div class="col-md-9 col-sm-7">
+                <h2>Usuarios.</h2>
+            </div>
+            
+            <div class="col-md-3 col-sm-5">
                 
-            </div>            
+                <form method="get" role="form" class="search-form-full">
+                
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="s" id="search-input" placeholder="Search..." />                        
+                        <i class="entypo-search"></i>
+                    </div>
+                    
+                </form>
+                
+            </div>
         </div>
+        <!-- Member Entries -->
+        <!-- Single Member -->
+        <div class="member-entry" ng-repeat="usuario in user">
+            <a href="extra-timeline.html" class="member-img">
+                <img src="{{usuario.fotoperfil}}" width="40" class="img-rounded" />
+                <i class="entypo-forward"></i>
+            </a>
+            <div class="member-details">
+                <h4>
+                    <a href="#">{{usuario.nombre}} {{usuario.apellidos}}</a>
+                </h4>
+                <!-- Details with Icons -->
+                <div class="row info-list">
+                    
+                    <div class="col-sm-4">
+                        <i class="fa fa-briefcase fa-fw"></i>
+                        Area <a href="#">{{usuario.nombredpto}}</a>
+                    </div>
+                    <div class="col-sm-4">
+                        <i class="fa fa-envelope fa-fw"></i>
+                        <a href="#">{{usuario.email}}</a>
+                    </div>                                                        
+                    <div class="col-sm-4">
+                        <i class="fa fa-facebook-square fa-fw"></i>
+                        <a href="#">{{usuario.Facebook}}</a>
+                    </div>
+                    <div class="col-sm-4">
+                        <i class="fa fa-pencil-square fa-fw"></i>
+                        <a href="#">{{usuario.profesion}}</a>
+                    </div>
+                    <div class="clear"></div>                                                                                
+                </div>
+            </div>
+        </div>    
+    </div>          
 </div>  
 
 
-            
-        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>                
         <script src="../assets/js/angular.js"></script>      
         <script src="../assets/js/jquery.js"></script> 
-        <script src="../assets/js/metisMenu.min.js"></script>
         <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/metisMenu/metisMenu.min.js"></script> 
         <script src="../assets/js/sb-admin-2.js"></script>
-        <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/bootstrap/js/bootstrap.min.js"></script>                    
 
-<script>
-      var fetch = angular.module('fetch', []);
-      fetch.controller('dbCtrl', function ($scope, $http) {
-          getItem();
-          function getItem(){
-            $http.post("../assets/php/select.php").success(function(data){
-                $scope.data = data;
-                console.log($scope.data);                
-            })
-          .error(function() {
-            $scope.data = "error in fetching dat";
-            });
-          };         
 
-          $scope.mostrartablas = function(){
-          $http.post("../assets/php/select.php",{elige:'obtenertablas'}).success(function(perfil){
-            $scope.tablas=perfil;
-          })
-        }          
-      });      
-    </script>       
+        <script>
+            var fetch = angular.module('fetch', []);
+                fetch.controller('dbCtrl', function ($scope, $http) {                
+                    $http.post("../php/select.php").success(function(data){
+                        $scope.data = data;
+                        console.log($scope.data);                
+                    })
 
+                    $http.post("../php/user.php").success(function(user){                        
+                            $scope.user = user;
+                            console.log($scope.user);                
+                        })
+                    
+                    .error(function() {
+                        $scope.data = "error in fetching dat";
+                    });                    
+                });                      
+        </script>              
 </body>
 <?php 
 }

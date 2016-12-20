@@ -1,0 +1,1240 @@
+.mail-env {
+  position: relative;
+}
+.mail-env:before,
+.mail-env:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.mail-env:after {
+  clear: both;
+}
+hr + .mail-env {
+  margin-top: -18px;
+  border-top: 1px solid #ebebeb;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.mail-env + hr {
+  margin-top: 0px;
+  position: relative;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+.mail-env .mail-sidebar,
+.mail-env .mail-body {
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.mail-env .mail-sidebar:before,
+.mail-env .mail-body:before,
+.mail-env .mail-sidebar:after,
+.mail-env .mail-body:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.mail-env .mail-sidebar:after,
+.mail-env .mail-body:after {
+  clear: both;
+}
+.mail-env .mail-sidebar-row {
+  padding: 20px;
+}
+.mail-env > .mail-sidebar-row.visible-xs {
+  padding-bottom: 0;
+}
+.mail-env .mail-sidebar {
+  width: 22%;
+  background: #f9f9f9;
+  border-right: 1px solid #ebebeb;
+  position: relative;
+}
+.mail-env .mail-sidebar > h4 {
+  padding: 20px;
+}
+.mail-env .mail-sidebar .mail-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid #ebebeb;
+}
+.mail-env .mail-sidebar .mail-menu > li {
+  margin: 0;
+  padding: 0;
+  border-bottom: 1px solid #ebebeb;
+}
+.mail-env .mail-sidebar .mail-menu > li a {
+  display: block;
+  padding: 20px;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.mail-env .mail-sidebar .mail-menu > li a .badge {
+  font-size: 13px;
+}
+.mail-env .mail-sidebar .mail-menu > li a .badge-gray {
+  background: transparent;
+  border: 1px solid #ebebeb;
+}
+.mail-env .mail-sidebar .mail-menu > li a .badge-roundless {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.mail-env .mail-sidebar .mail-menu > li:hover a {
+  background: rgba(255, 255, 255, 0.8);
+}
+.mail-env .mail-sidebar .mail-menu > li.active a {
+  background: #fff;
+  font-weight: bold;
+}
+.mail-env .mail-sidebar .mail-distancer {
+  height: 40px;
+}
+.mail-env .mail-body {
+  width: 78%;
+  float: right;
+  overflow: hidden;
+}
+.mail-env .mail-body .mail-header {
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+.mail-env .mail-body .mail-header:before,
+.mail-env .mail-body .mail-header:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.mail-env .mail-body .mail-header:after {
+  clear: both;
+}
+.mail-env .mail-body .mail-header .mail-title {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  float: left;
+  width: 75%;
+  padding-right: 20px;
+  color: #303641;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mail-env .mail-body .mail-header .mail-title span.count {
+  font-weight: normal;
+  -webkit-opacity: 0.3;
+  -moz-opacity: 0.3;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+  filter: alpha(opacity=30);
+}
+.mail-env .mail-body .mail-header .mail-title .label {
+  font-size: 9px;
+  position: relative;
+  top: -4px;
+}
+.mail-env .mail-body .mail-header .mail-search,
+.mail-env .mail-body .mail-header .mail-links {
+  float: left;
+  text-align: right;
+  width: 25%;
+}
+.mail-env .mail-body .mail-header .mail-search.mail-links > .btn,
+.mail-env .mail-body .mail-header .mail-links.mail-links > .btn {
+  margin-left: 5px;
+  font-size: 11px;
+}
+.mail-env .mail-body .mail-header .mail-search.mail-links > .btn:first-child,
+.mail-env .mail-body .mail-header .mail-links.mail-links > .btn:first-child {
+  margin-left: 0;
+}
+.mail-env .mail-body .mail-header .mail-search .form-control[type="text"],
+.mail-env .mail-body .mail-header .mail-links .form-control[type="text"] {
+  height: 29px;
+}
+.mail-env .mail-body .mail-info {
+  background: #f3f4f4;
+  display: table;
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border-bottom: 1px solid #ebebeb;
+}
+.mail-env .mail-body .mail-info:before,
+.mail-env .mail-body .mail-info:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.mail-env .mail-body .mail-info:after {
+  clear: both;
+}
+.mail-env .mail-body .mail-info .mail-sender,
+.mail-env .mail-body .mail-info .mail-date {
+  display: table-cell;
+  width: 50%;
+  color: #a6a6a6;
+  padding: 20px;
+}
+.mail-env .mail-body .mail-info .mail-sender.mail-sender span,
+.mail-env .mail-body .mail-info .mail-date.mail-sender span {
+  font-weight: bold;
+  color: #ec5956;
+}
+.mail-env .mail-body .mail-info .mail-sender.mail-sender img,
+.mail-env .mail-body .mail-info .mail-date.mail-sender img {
+  margin-right: 5px;
+  border: 2px solid #ebebeb;
+}
+.mail-env .mail-body .mail-info .mail-sender.mail-sender .dropdown-menu:after,
+.mail-env .mail-body .mail-info .mail-date.mail-sender .dropdown-menu:after {
+  position: absolute;
+  content: '';
+  display: block;
+  top: -5px;
+  left: 17%;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+  border-width: 0 3px 4px 3px;
+  border-color: transparent transparent #cc2424 transparent;
+}
+.mail-env .mail-body .mail-info .mail-sender.mail-date,
+.mail-env .mail-body .mail-info .mail-date.mail-date {
+  text-align: right;
+}
+.mail-env .mail-body .mail-text {
+  border-bottom: 1px solid #ebebeb;
+  padding: 20px;
+}
+.mail-env .mail-body .mail-attachments {
+  padding: 20px;
+  border-bottom: 1px solid #ebebeb;
+}
+.mail-env .mail-body .mail-attachments h4 {
+  margin-bottom: 30px;
+  line-height: 1;
+}
+.mail-env .mail-body .mail-attachments h4 span {
+  -webkit-opacity: 0.4;
+  -moz-opacity: 0.4;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=40);
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
+.mail-env .mail-body .mail-attachments ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.mail-env .mail-body .mail-attachments ul:before,
+.mail-env .mail-body .mail-attachments ul:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.mail-env .mail-body .mail-attachments ul:after {
+  clear: both;
+}
+.mail-env .mail-body .mail-attachments ul li {
+  float: left;
+  margin: 0;
+  padding: 0;
+  margin-right: 30px;
+  margin-bottom: 20px;
+}
+.mail-env .mail-body .mail-attachments ul li > a {
+  display: block;
+}
+.mail-env .mail-body .mail-attachments ul li > a img {
+  position: relative;
+  display: block;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.mail-env .mail-body .mail-attachments ul li > a.thumb {
+  position: relative;
+}
+.mail-env .mail-body .mail-attachments ul li > a.thumb:after {
+  font-family: 'Entypo';
+  content: '\e826';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 40px;
+  vertical-align: text-top;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.25);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-opacity: 0;
+  -moz-opacity: 0;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.mail-env .mail-body .mail-attachments ul li > a.thumb:hover:after {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.mail-env .mail-body .mail-attachments ul li > a.thumb.download:after {
+  content: '\e82d';
+}
+.mail-env .mail-body .mail-attachments ul li > a.name span {
+  color: #666666;
+  float: right;
+}
+.mail-env .mail-body .mail-attachments ul li .links {
+  display: block;
+  font-size: 11px;
+  color: #666666;
+  margin-top: 6px;
+}
+.mail-env .mail-body .mail-attachments ul li .links a {
+  color: #666666;
+}
+.mail-env .mail-body .mail-reply {
+  border-bottom: 1px solid #ebebeb;
+  padding: 20px;
+}
+.mail-env .mail-body .mail-reply .fake-form {
+  padding: 20px;
+  border: 2px solid #ebebeb;
+  min-height: 100px;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.mail-env .mail-body .mail-reply .fake-form > div a {
+  font-weight: bold;
+  color: #ec5956;
+}
+.mail-env .mail-body .mail-compose {
+  padding: 20px;
+}
+.mail-env .mail-body .mail-compose .form-group {
+  position: relative;
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 15px;
+}
+.mail-env .mail-body .mail-compose .form-group label {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+  z-index: 10;
+}
+.mail-env .mail-body .mail-compose .form-group input {
+  border-color: transparent;
+  position: relative;
+  z-index: 5;
+  padding-left: 100px;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.mail-env .mail-body .mail-compose .form-group input:focus {
+  background: #f9f9f9;
+  border-color: #f4f4f4;
+}
+.mail-env .mail-body .mail-compose .form-group .field-options {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  z-index: 12;
+}
+.mail-env .mail-body .mail-compose .form-group .field-options a {
+  display: inline-block;
+  background: #f3f4f4;
+  color: #7e8186;
+  padding: 2px 6px;
+  margin-left: 4px;
+  text-align: center;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+.mail-env .mail-body .mail-compose .compose-message-editor {
+  padding-top: 5px;
+}
+.mail-env .mail-body .mail-compose .compose-message-editor textarea {
+  height: 400px;
+}
+.mail-env .mail-body > div:last-child {
+  border-bottom: 0;
+}
+.mail-env .mail-body .mail-table {
+  margin-bottom: 0;
+}
+.mail-env .mail-body .mail-table thead tr th,
+.mail-env .mail-body .mail-table tfoot tr th {
+  background: #ebebeb;
+  border: 0;
+  color: #666666;
+  vertical-align: middle;
+  border-bottom: 0;
+}
+.mail-env .mail-body .mail-table thead tr th a,
+.mail-env .mail-body .mail-table tfoot tr th a {
+  color: #666666;
+}
+.mail-env .mail-body .mail-table thead tr th .mail-select-options,
+.mail-env .mail-body .mail-table tfoot tr th .mail-select-options {
+  float: left;
+  padding-top: 5px;
+}
+.mail-env .mail-body .mail-table thead tr th .mail-pagination,
+.mail-env .mail-body .mail-table tfoot tr th .mail-pagination {
+  float: right;
+}
+.mail-env .mail-body .mail-table thead tr th .mail-pagination span,
+.mail-env .mail-body .mail-table tfoot tr th .mail-pagination span {
+  color: rgba(102, 102, 102, 0.5);
+}
+.mail-env .mail-body .mail-table thead tr th .mail-pagination .btn-group,
+.mail-env .mail-body .mail-table tfoot tr th .mail-pagination .btn-group {
+  margin-left: 5px;
+}
+.mail-env .mail-body .mail-table thead tr th .mail-pagination .btn-group .btn-sm,
+.mail-env .mail-body .mail-table tfoot tr th .mail-pagination .btn-group .btn-sm {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+.mail-env .mail-body .mail-table tbody tr td {
+  border-top: 0;
+  border-bottom: 1px solid #ebebeb;
+  height: 50px;
+  vertical-align: middle;
+  background: #f9f9f9;
+}
+.mail-env .mail-body .mail-table tbody tr td.col-name,
+.mail-env .mail-body .mail-table tbody tr td.col-subject {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mail-env .mail-body .mail-table tbody tr td.col-name.col-subject a,
+.mail-env .mail-body .mail-table tbody tr td.col-subject.col-subject a {
+  color: #8c8c8c;
+}
+.mail-env .mail-body .mail-table tbody tr td.col-name.col-subject a.label,
+.mail-env .mail-body .mail-table tbody tr td.col-subject.col-subject a.label {
+  color: #fff;
+}
+.mail-env .mail-body .mail-table tbody tr td.col-name {
+  width: 25%;
+}
+.mail-env .mail-body .mail-table tbody tr td.col-subject a {
+  display: inline-block;
+  max-width: 400px;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.mail-env .mail-body .mail-table tbody tr td.col-options {
+  text-align: right;
+}
+.mail-env .mail-body .mail-table tbody tr td.col-options a {
+  color: #999999;
+}
+.mail-env .mail-body .mail-table tbody tr td.col-time {
+  width: 12%;
+  text-align: right;
+  color: rgba(102, 102, 102, 0.5);
+}
+.mail-env .mail-body .mail-table tbody tr td .star {
+  display: inline-block;
+  color: #dddddd;
+  margin-right: 5px;
+  font-size: 14px;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.mail-env .mail-body .mail-table tbody tr td .star.stared,
+.mail-env .mail-body .mail-table tbody tr td .star.starred {
+  color: #ff9600;
+}
+.mail-env .mail-body .mail-table tbody tr td > .label:first-child {
+  margin-left: 0;
+}
+.mail-env .mail-body .mail-table tbody tr.unread > td {
+  background-color: #fff !important;
+}
+.mail-env .mail-body .mail-table tbody tr.unread > td.col-name a {
+  font-weight: bold;
+}
+.mail-env .mail-body .mail-table tbody tr.highlight > td {
+  background-color: #ffffcc !important;
+}
+.mail-env .mail-body .mail-table > thead > tr > td:first-child,
+.mail-env .mail-body .mail-table > tbody > tr > td:first-child,
+.mail-env .mail-body .mail-table > tfoot > tr > td:first-child,
+.mail-env .mail-body .mail-table > thead > tr > th:first-child,
+.mail-env .mail-body .mail-table > tbody > tr > th:first-child,
+.mail-env .mail-body .mail-table > tfoot > tr > th:first-child {
+  padding-left: 20px;
+}
+.mail-env .mail-body .mail-table > thead > tr > td:last-child,
+.mail-env .mail-body .mail-table > tbody > tr > td:last-child,
+.mail-env .mail-body .mail-table > tfoot > tr > td:last-child,
+.mail-env .mail-body .mail-table > thead > tr > th:last-child,
+.mail-env .mail-body .mail-table > tbody > tr > th:last-child,
+.mail-env .mail-body .mail-table > tfoot > tr > th:last-child {
+  padding-right: 20px;
+}
+.mail-env .mail-body .mail-table > thead > tr > thX:first-child,
+.mail-env .mail-body .mail-table > tbody > tr > thX:first-child,
+.mail-env .mail-body .mail-table > tfoot > tr > thX:first-child {
+  position: relative;
+}
+.mail-env .mail-body .mail-table > thead > tr > thX:first-child:before,
+.mail-env .mail-body .mail-table > tbody > tr > thX:first-child:before,
+.mail-env .mail-body .mail-table > tfoot > tr > thX:first-child:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 20px;
+  background: #FFF;
+}
+.mail-env .mail-body .mail-table > thead > tr > thX:last-child,
+.mail-env .mail-body .mail-table > tbody > tr > thX:last-child,
+.mail-env .mail-body .mail-table > tfoot > tr > thX:last-child {
+  position: relative;
+}
+.mail-env .mail-body .mail-table > thead > tr > thX:last-child:before,
+.mail-env .mail-body .mail-table > tbody > tr > thX:last-child:before,
+.mail-env .mail-body .mail-table > tfoot > tr > thX:last-child:before {
+  position: absolute;
+  content: '';
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 20px;
+  background: #FFF;
+}
+.mail-env .mail-body .mail-table > tbody > tr:nth-child(odd) > td {
+  background: #fbfbfb;
+}
+.mail-env .mail-body .mail-table .neon-cb-replacement {
+  top: 2px;
+}
+.mail-env .mail-body .mail-table .neon-cb-replacement .cb-wrapper {
+  background: #fff;
+  border-color: #dfdfdf;
+}
+.mail-env .mail-body .mail-table .neon-cb-replacement .cb-wrapper .checked {
+  background: #dfdfdf;
+}
+.mail-env.right-sidebar .mail-sidebar {
+  border-left: 1px solid #ebebeb;
+  border-right: 0;
+}
+.mail-env.right-sidebar .mail-body {
+  float: left;
+}
+@media (max-width: 999px) {
+  .mail-env .mail-body .mail-table tbody tr td.col-subject a {
+    max-width: 280px;
+  }
+}
+@media (max-width: 959px) {
+  .mail-env .mail-body .mail-header div.mail-title {
+    width: 100%;
+    white-space: normal;
+  }
+  .mail-env .mail-body .mail-header .mail-links {
+    float: none;
+    width: 100%;
+    text-align: left;
+    clear: left;
+    padding-top: 10px;
+  }
+  .mail-env .mail-body .mail-info {
+    display: block;
+  }
+  .mail-env .mail-body .mail-info .mail-sender,
+  .mail-env .mail-body .mail-info .mail-date {
+    display: block;
+    width: 100%;
+  }
+  .mail-env .mail-body .mail-info .mail-sender.mail-sender,
+  .mail-env .mail-body .mail-info .mail-date.mail-sender {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .mail-env .mail-body .mail-info .mail-sender.mail-date,
+  .mail-env .mail-body .mail-info .mail-date.mail-date {
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  .mail-env .mail-body .mail-compose .compose-message-editor textarea {
+    height: 300px;
+  }
+}
+@media (max-width: 768px) {
+  .mail-env .mail-sidebar {
+    width: 30.8%;
+  }
+  .mail-env .mail-body {
+    width: 69.2%;
+  }
+  .mail-env .mail-body .mail-table tbody tr td.col-options {
+    display: none;
+  }
+  .mail-env .mail-body .mail-table tbody tr td.col-subject a {
+    max-width: 160px;
+  }
+  .mail-env .mail-body .mail-compose .compose-message-editor textarea {
+    height: 240px;
+  }
+}
+@media (max-width: 767px) {
+  .mail-env .mail-sidebar,
+  .mail-env .mail-body {
+    width: 100%;
+    float: none;
+  }
+  .mail-env .mail-body .mail-header .mail-title,
+  .mail-env .mail-body .mail-header .mail-search,
+  .mail-env .mail-body .mail-header .mail-links {
+    float: none;
+    width: 100%;
+  }
+  .mail-env .mail-body .mail-header .mail-title.mail-search,
+  .mail-env .mail-body .mail-header .mail-search.mail-search,
+  .mail-env .mail-body .mail-header .mail-links.mail-search,
+  .mail-env .mail-body .mail-header .mail-title.mail-links,
+  .mail-env .mail-body .mail-header .mail-search.mail-links,
+  .mail-env .mail-body .mail-header .mail-links.mail-links {
+    margin-top: 20px;
+  }
+  .mail-env .mail-body .mail-header .mail-links {
+    padding-top: 0;
+  }
+}
+@media (max-width: 449px) {
+  .mail-env .mail-body .mail-table tbody tr td.col-subject a {
+    max-width: 40px;
+  }
+  .mail-env .mail-body .mail-table tbody tr > td.col-name a.star {
+    display: none;
+  }
+  .mail-env .mail-body .mail-table > thead > tr > td:last-child,
+  .mail-env .mail-body .mail-table > tbody > tr > td:last-child,
+  .mail-env .mail-body .mail-table > tfoot > tr > td:last-child,
+  .mail-env .mail-body .mail-table > thead > tr > th:last-child,
+  .mail-env .mail-body .mail-table > tbody > tr > th:last-child,
+  .mail-env .mail-body .mail-table > tfoot > tr > th:last-child {
+    padding-right: 10px;
+  }
+  .mail-env .mail-body .mail-table > thead > tr > td:first-child,
+  .mail-env .mail-body .mail-table > tbody > tr > td:first-child,
+  .mail-env .mail-body .mail-table > tfoot > tr > td:first-child,
+  .mail-env .mail-body .mail-table > thead > tr > th:first-child,
+  .mail-env .mail-body .mail-table > tbody > tr > th:first-child,
+  .mail-env .mail-body .mail-table > tfoot > tr > th:first-child {
+    padding-left: 10px;
+  }
+}
+
+.profile-env > header {
+  position: relative;
+  z-index: 20;
+  margin-top: 30px;
+}
+.profile-env > header .profile-picture {
+  position: relative;
+}
+.profile-env > header .profile-picture img {
+  float: right;
+  -moz-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
+  -webkit-box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
+  box-shadow: 0px 0px 0px 5px rgba(255, 255, 255, 0.9);
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env > header .profile-picture:hover img {
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+.profile-env > header .profile-info-sections {
+  margin: 0;
+  padding: 0;
+  margin-top: 15px;
+  padding-left: 0;
+  list-style: none;
+}
+.profile-env > header .profile-info-sections > li {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+.profile-env > header .profile-info-sections > li:first-child {
+  padding-left: 0;
+}
+.profile-env > header .profile-info-sections .profile-name strong,
+.profile-env > header .profile-info-sections .profile-name span {
+  display: block;
+}
+.profile-env > header .profile-info-sections .profile-name strong {
+  font-size: 18px;
+  font-weight: normal;
+}
+.profile-env > header .profile-info-sections .profile-name span {
+  font-size: 12px;
+  color: #bbbbbb;
+}
+.profile-env > header .profile-info-sections .profile-name span a {
+  color: #bbbbbb;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env > header .profile-info-sections .profile-name span a:hover {
+  color: #888888;
+}
+.profile-env > header .profile-info-sections .profile-name .user-status {
+  position: relative;
+  display: inline-block;
+  background: #575d67;
+  top: -2px;
+  margin-left: 5px;
+  width: 6px;
+  height: 6px;
+  -webkit-border-radius: 6px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 6px;
+  -moz-background-clip: padding;
+  border-radius: 6px;
+  background-clip: padding-box;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env > header .profile-info-sections .profile-name .user-status.is-online {
+  background-color: #06b53c;
+}
+.profile-env > header .profile-info-sections .profile-name .user-status.is-offline {
+  background-color: #575d67;
+}
+.profile-env > header .profile-info-sections .profile-name .user-status.is-idle {
+  background-color: #f7d227;
+}
+.profile-env > header .profile-info-sections .profile-name .user-status.is-busy {
+  background-color: #ee4749;
+}
+.profile-env > header .profile-info-sections .profile-stat h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+.profile-env > header .profile-info-sections .profile-stat span {
+  color: #bbbbbb;
+}
+.profile-env > header .profile-info-sections .profile-stat span a {
+  color: #bbbbbb;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env > header .profile-info-sections .profile-stat span a:hover {
+  color: #888888;
+}
+.profile-env > header .profile-info-sections > li {
+  padding: 0 40px;
+  position: relative;
+}
+.profile-env > header .profile-info-sections > li + li:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 15px;
+  bottom: 0;
+  left: 0;
+  width: 1px;
+  background: #ebebeb;
+  margin: 8px 0;
+}
+.profile-env > header .profile-info-sections > li:first-child {
+  padding-left: 0;
+}
+.profile-env > header .profile-buttons {
+  margin-top: 35px;
+}
+.profile-env > header .profile-buttons a {
+  margin: 0 4px;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env section {
+  position: relative;
+  z-index: 10;
+}
+.profile-env section.profile-info-tabs {
+  position: relative;
+  background: #f1f1f1;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 20px;
+  margin-top: -20px;
+  margin-bottom: 30px;
+}
+.profile-env section.profile-info-tabs .user-details {
+  padding-left: 0;
+  list-style: none;
+}
+.profile-env section.profile-info-tabs .user-details li {
+  margin-bottom: 10px;
+}
+.profile-env section.profile-info-tabs .user-details li a {
+  color: #a0a0a0;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env section.profile-info-tabs .user-details li a:hover {
+  color: #606060;
+}
+.profile-env section.profile-info-tabs .user-details li a:hover span {
+  color: #e72c28;
+}
+.profile-env section.profile-info-tabs .user-details li a i {
+  margin-right: 5px;
+}
+.profile-env section.profile-info-tabs .user-details li a span {
+  color: #ec5956;
+  font-weight: normal;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env section.profile-info-tabs .nav-tabs {
+  position: relative;
+  margin-bottom: -20px;
+  border-bottom: 0;
+}
+.profile-env section.profile-info-tabs .nav-tabs > li:first-child a {
+  margin-left: 0;
+}
+.profile-env section.profile-info-tabs .nav-tabs li {
+  margin-bottom: 0;
+}
+.profile-env section.profile-info-tabs .nav-tabs li a {
+  border: none;
+  padding: 10px 35px;
+  font-size: 13px;
+  background: #e1e1e1;
+  margin-right: 10px;
+}
+.profile-env section.profile-info-tabs .nav-tabs li.active a {
+  background: #fff;
+}
+.profile-env section.profile-feed {
+  margin-bottom: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.profile-env section.profile-feed .profile-post-form {
+  border: 1px solid #ebebeb;
+  margin-bottom: 30px;
+  -webkit-border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 3px;
+  -moz-background-clip: padding;
+  border-radius: 3px;
+  background-clip: padding-box;
+}
+.profile-env section.profile-feed .profile-post-form .form-control {
+  border: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 0;
+  background: #fff;
+  min-height: 80px;
+  -webkit-border-radius: 3px;
+  -webkit-background-clip: padding-box;
+  -moz-border-radius: 3px;
+  -moz-background-clip: padding;
+  border-radius: 3px;
+  background-clip: padding-box;
+}
+.profile-env section.profile-feed .profile-post-form .form-options {
+  background: #f3f3f3;
+  border-top: 1px solid #ebebeb;
+  padding: 10px;
+}
+.profile-env section.profile-feed .profile-post-form .form-options:before,
+.profile-env section.profile-feed .profile-post-form .form-options:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.profile-env section.profile-feed .profile-post-form .form-options:after {
+  clear: both;
+}
+.profile-env section.profile-feed .profile-post-form .form-options .post-type {
+  float: left;
+  padding-top: 6px;
+}
+.profile-env section.profile-feed .profile-post-form .form-options .post-type a {
+  margin-left: 10px;
+  font-size: 13px;
+  color: #aaaaaa;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env section.profile-feed .profile-post-form .form-options .post-type a:hover {
+  color: #303641;
+}
+.profile-env section.profile-feed .profile-post-form .form-options .post-submit {
+  float: right;
+}
+.profile-env section.profile-feed .profile-post-form .form-options .post-submit .btn {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.profile-env section.profile-feed .profile-stories article.story {
+  margin: 30px 0;
+}
+.profile-env section.profile-feed .profile-stories article.story:before,
+.profile-env section.profile-feed .profile-stories article.story:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.profile-env section.profile-feed .profile-stories article.story:after {
+  clear: both;
+}
+.profile-env section.profile-feed .profile-stories article.story .user-thumb {
+  float: left;
+  width: 8%;
+}
+.profile-env section.profile-feed .profile-stories article.story .user-thumb a img {
+  -moz-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.04);
+  -webkit-box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.04);
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content {
+  float: right;
+  width: 92%;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content header {
+  display: block;
+  margin-bottom: 10px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content header:before,
+.profile-env section.profile-feed .profile-stories article.story .story-content header:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content header:after {
+  clear: both;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content header .publisher {
+  float: left;
+  color: #9b9fa6;
+  font-size: 14px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content header .publisher a {
+  color: #303641;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content header .publisher em {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content header .story-type {
+  float: right;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content .story-main-content {
+  font-size: 13px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content .story-main-content p {
+  font-size: 13px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer {
+  margin-top: 15px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .liked i {
+  color: #ff4e50;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer > a {
+  margin-right: 30px;
+  display: inline-block;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer > a span {
+  -webkit-opacity: 0.6;
+  -moz-opacity: 0.6;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  margin-top: 30px;
+  border-top: 1px solid #ebebeb;
+  padding-top: 20px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li {
+  display: table;
+  vertical-align: top;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li:before,
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li:after {
+  clear: both;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li + li {
+  margin-top: 15px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-thumb,
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content {
+  display: table-cell;
+  vertical-align: top;
+  width: 100%;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-thumb {
+  width: 1%;
+  padding-right: 20px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content {
+  border-bottom: 1px solid #ebebeb;
+  padding-bottom: 15px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-name {
+  font-weight: bold;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta {
+  font-size: 11px;
+  margin-top: 15px;
+  color: #9b9fa6;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a {
+  color: #8d929a;
+  margin-right: 5px;
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a + a {
+  margin-left: 5px;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a i {
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a:hover {
+  color: #737881;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li .user-comment-content .user-comment-meta a:hover i {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li.comment-form .user-comment-content {
+  position: relative;
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li.comment-form .user-comment-content .form-control {
+  background: #eeeeee;
+  border: 0;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li.comment-form .user-comment-content .btn {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  border: 0;
+  background: transparent;
+  color: #737881;
+  font-size: 13px;
+  -webkit-opacity: 0.7;
+  -moz-opacity: 0.7;
+  opacity: 0.7;
+  filter: alpha(opacity=70);
+  -moz-transition: all 300ms ease-in-out;
+  -o-transition: all 300ms ease-in-out;
+  -webkit-transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out;
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content footer .comments li.comment-form .user-comment-content .btn:hover {
+  -webkit-opacity: 1;
+  -moz-opacity: 1;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.profile-env section.profile-feed .profile-stories article.story .story-content hr {
+  margin-top: 40px;
+}
+@media (max-width: 992px) {
+  .profile-env > header .profile-picture img {
+    width: 90%;
+  }
+  .profile-env > header .profile-buttons {
+    margin-top: 18px;
+  }
+  .profile-env > header .profile-info-sections .profile-name strong,
+  .profile-env > header .profile-info-sections .profile-stat h3 {
+    font-size: 16px;
+  }
+  .profile-env > header .profile-info-sections {
+    margin-top: 0;
+  }
+  .profile-env > header .profile-info-sections > li {
+    padding: 0 20px;
+  }
+  .profile-env section.profile-info-tabs .nav-tabs li a {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+  .profile-env section.profile-feed .profile-stories article.story .user-thumb {
+    width: 10%;
+  }
+  .profile-env section.profile-feed .profile-stories article.story .story-content {
+    width: 90%;
+  }
+}
+@media (max-width: 768px) {
+  .profile-env section.profile-info-tabs {
+    margin-top: 30px;
+  }
+  .profile-env > header .profile-picture img {
+    float: none;
+  }
+  .profile-env > header .profile-buttons a {
+    margin-bottom: 5px;
+  }
+}
+@media (max-width: 601px) {
+  .profile-env > header .profile-info-sections {
+    margin-bottom: 10px;
+  }
+  .profile-env > header .profile-info-sections li {
+    padding: 15px;
+  }
+  .profile-env > header .profile-info-sections > li:first-child {
+    padding-left: 0;
+  }
+  .profile-env > header .profile-buttons {
+    margin-top: 0;
+  }
+  .profile-env > header .profile-picture {
+    text-align: center;
+    display: block;
+  }
+  .profile-env > header .profile-picture img {
+    width: auto;
+    float: none;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  .profile-env section.profile-feed .profile-stories article.story .user-thumb {
+    width: 18%;
+  }
+  .profile-env section.profile-feed .profile-stories article.story .story-content {
+    width: 82%;
+  }
+  .profile-env section.profile-info-tabs .nav-tabs li a {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: 5px;
+    font-size: 12px;
+  }
+  .profile-env section.profile-feed {
+    padding: 0;
+  }
+  .profile-env .col-sm-7,
+  .profile-env .col-sm-3 {
+    text-align: center;
+  }
+  .profile-env .col-sm-7 .profile-info-sections,
+  .profile-env .col-sm-3 .profile-info-sections,
+  .profile-env .col-sm-7 .profile-buttons,
+  .profile-env .col-sm-3 .profile-buttons {
+    display: inline-block;
+  }
+  .profile-env > header .profile-info-sections > li + li:after {
+    margin: 18px 0;
+  }
+}

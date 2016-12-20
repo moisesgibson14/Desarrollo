@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Subir Info</title>
+	<link rel="stylesheet" href="css/bootstrap.css" >
+	<script>
+	var x = document.getElementById("demo");
+
+	function getLocation() {
+	    if (navigator.geolocation) {
+	        navigator.geolocation.getCurrentPosition(showPosition);
+	    } else {
+	        x.innerHTML = "Geolocation is not supported by this browser.";
+	    }
+	}
+	function showPosition(position) {
+	    x.innerHTML = "Latitude: " + position.coords.latitude +
+	    "<br>Longitude: " + position.coords.longitude;
+	}
+	</script>
+</head>
+<body>
+	<form  action="php/registro.php" method="post" enctype="multipart/form-data">
+		<fieldset>
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<div class="form-group">
+					<h1 class="title">Subir Informacion</h1>
+					<label for="">Nombre:</label>
+						<input type="text" name="nom" class="form-control input-lg text-center"><br>
+					<label for="">Apellidos</label>
+						<input type="text" name="apellidos" class="form-control input-lg text-center"><br>
+					<label>Profesion</label>
+						<input type="text" name="profesion" class="form-control input-lg text-center"><br>
+					<label for="">Cedula Profesional</label>
+						<input type="text" name="cedula" class="form-control input-lg text-center"><br>
+					<label for="">Telefono</label>
+						<input type="text" name="telefono" class="form-control input-lg text-center"><br>
+					<label for="">Direccion</label>
+						<input type="text" name="direccion" class="form-control input-lg text-center"><br>
+					<labe for="">Correo:</label>
+						<input type="text" name="correo" class="form-control input-lg text-center"><br>
+					<label for="">Empresa</label>
+						<input type="text" name="empresa" class="form-control input-lg text-center"><br>
+					<label for="">Descripcion</label>
+						<textarea name="descripcion" class="form-control input-lg text-center"></textarea><br>
+					<label>Subir Foto</label>
+						<input type="file" name="archivo" required>
+					<td><input type="submit" value="SUBIR" name="SubirArchivo"></td>
+				</div>
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>
