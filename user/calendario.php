@@ -16,13 +16,17 @@
         <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="../assets/css/metisMenu.min.css" rel="stylesheet">
         <link href="../assets/css/metisMenu.css" rel="stylesheet">        
+        <link href="../assets/css/calendario.css" rel="stylesheet">        
         <!-- Style CSS -->        
         <link rel="stylesheet" type="text/css" href="../assets/css/design.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.css">
         
         <script src="../assets/js/angular.js"></script>      
-        <script src="../assets/js/jquery.js"></script> 
-        <script src="../assets/js/jquery.min.js"></script>                
+        <script src="../assets/js/jquery.js"></script>
+        <script src="../assets/js/calendario.js"></script> 
+        <script src="../assets/js/fullcalendar/fullcalendar.min.js"></script>
+        <script src="../assets/js//jquery/js/jquery-ui-1.10.3.minimal.min.js"></script>                
+
         <script src="../assets/js/moment.min.js"></script>
         <script src="../assets/js/metisMenu/metisMenu.min.js"></script> 
         <script src="../assets/js/sb-admin-2.js"></script>
@@ -288,7 +292,57 @@
                     <strong>Calendario</strong>                     
                 </li>
             </ol>   
-            <div id='calendar'></div>
+            
+            <div class="calendar-env">
+            
+            <!-- Calendar Body -->
+            <div class="calendar-body">
+                
+                <div id="calendar"></div>
+                
+                
+            </div>
+            
+            <!-- Sidebar -->
+            <div class="calendar-sidebar">
+                
+                <!-- new task form -->
+                <div class="calendar-sidebar-row">
+                        
+                    <form role="form" id="add_event_form">
+                    
+                        <div class="input-group minimal">
+                            <input type="text" class="form-control" placeholder="Agregar evento.." />
+                            
+                            <div class="input-group-addon">
+                                <i class="fa fa-pencil"></i>
+                            </div>
+                        </div>
+                        
+                    </form>
+                    
+                </div>
+            
+            
+                <!-- Events List -->
+                <ul class="events-list" id="draggable_events">
+                    <li>
+                        <p>Arrastra los eventos hacia el calendario al Dia o Dias especificos</p>
+                    </li>                    
+                    <li>
+                        <a href="#" class="color-blue" data-event-class="color-blue">Empezar a producir R4</a>
+                    </li>
+                    <li>
+                        <a href="#" class="color-orange" data-event-class="color-orange">Junta con Almacen y produccion</a>
+                    </li>                    
+                    <li>
+                        <a href="#" class="color-green" data-event-class="color-green">Conferencia Online</a>
+                    </li>
+                </ul>
+                
+            </div>
+            
+        </div>
             
         
         </div>    
@@ -308,77 +362,7 @@
                     });
                 });      
         </script>              
-        <script>
-
-    $(document).ready(function() {
-
-        $('#calendar').fullCalendar({
-            defaultDate: '2016-12-12',
-            editable: true,
-            eventLimit: true, // allow "more" link when too many events
-            events: [
-                {
-                    title: 'All Day Event',
-                    start: '2016-12-01'
-                },
-                {
-                    title: 'Long Event',
-                    start: '2016-12-07',
-                    end: '2016-12-10'
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: '2016-12-09T16:00:00'
-                },
-                {
-                    id: 999,
-                    title: 'Repeating Event',
-                    start: '2016-12-16T16:00:00'
-                },
-                {
-                    title: 'Conference',
-                    start: '2016-12-11',
-                    end: '2016-12-13'
-                },
-                {
-                    title: 'Meeting',
-                    start: '2016-12-12T10:30:00',
-                    end: '2016-12-12T12:30:00'
-                },
-                {
-                    title: 'Lunch',
-                    start: '2016-12-12T12:00:00'
-                },
-                {
-                    title: 'Meeting',
-                    start: '2016-12-12T14:30:00'
-                },
-                {
-                    title: 'Happy Hour',
-                    start: '2016-12-12T17:30:00'
-                },
-                {
-                    title: 'Dinner',
-                    start: '2016-12-12T20:00:00'
-                },
-                {
-                    title: 'Birthday Party',
-                    start: '2016-12-13T07:00:00'
-                },
-                {
-                    title: 'Click for Google',
-                    url: 'http://google.com/',
-                    start: '2016-12-28'
-                }
-            ]
-        });
         
-    });
-
-</script>
-
-
 </body>
 <?php 
 }

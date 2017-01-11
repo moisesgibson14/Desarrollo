@@ -15,13 +15,11 @@ if(isset($_SESSION['email'])){
         <!-- Bootstrap -->
         <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="../assets/css/metisMenu.min.css" rel="stylesheet">
-        <link href="../assets/css/metisMenu.css" rel="stylesheet">
+        <link href="../assets/css/metisMenu.css" rel="stylesheet">        
         <!-- Style CSS -->        
         <link rel="stylesheet" type="text/css" href="../assets/css/design.css">
+        <link rel="stylesheet" type="text/css" href="../assets/css/fileinput.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.css">
-
-
-        
 
     </head>
     
@@ -281,7 +279,53 @@ if(isset($_SESSION['email'])){
                 <li class="active">
                     <strong>Documentos</strong>                     
                 </li>
-            </ol>               
+            </ol>           
+            <div class="row">                
+                <div class="col-md-3 col-sm-5 navbar-right">                            
+                    <form method="get" role="form" class="search-form-full">                                
+                        <div class="form-group">                            
+                            <input type="text" class="form-control" name="s" id="search-input" placeholder="Buscar..." />
+                            <i class="entypo-search"></i>
+                        </div>                    
+                    </form>                
+                </div>                                
+
+                <div class="page-header" ng-repeat="perfil in data">            
+                    <div class="col-md-6">   
+                        <form enctype="multipart/form-data" action="../php/uploaddoc.php" method="post" >
+                            <h3>Subir un Archivo Nuevo?</h3>
+
+                            <input id="file-0a" class="file" name="archivo" type="file" multiple data-min-file-count="1" required="">
+                            <input type="hidden" name="idusuario" value={{perfil.idUsuarios}} />
+                            <input type="hidden" name="email" value={{perfil.email}} />
+                            <input type="text" name="nombredoc" class="form-control" required="" placeholder="Nombre..">
+                            <br>
+                        </form>
+                    </div>  
+                </div>                         
+            </div>
+            <h1>Mis Documentos.</h1>
+            <div class="row" >   
+                <div class="col-xs-6 col-sm-3" ng-repeat="doc in document">
+                    <a href="#pdfmiTemaActual" ng-click="mostrarTema(doc)" data-toggle="modal" class="page-scroll">{{doc.nomdocumento}}</a>
+
+                    <div id="pdfmiTemaActual" class="modal fade" role="dialog" >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h6 class="modal-title">Titulo</h6>                         
+                            </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <center><h3 id="nombre_pdf" class="text-primary">{{temaActual.nomdocumento}}</h3></center>                            
+                                        <center><iframe frameborder="0" allowtransparency="true" scrolling="auto" style="overflow: hidden; " id="pdf" src="{{temaActual.archivo}}"  width="95%" height="500px" ></iframe></center>
+                                    </div>
+                                </div>
+                        </div>                  
+                    </div>
+                </div>        
+            </div>  
         </div>        
 </div>  
 
@@ -290,13 +334,14 @@ if(isset($_SESSION['email'])){
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/metisMenu/metisMenu.min.js"></script> 
         <script src="../assets/js/sb-admin-2.js"></script>
+        <script src="../assets/js/fileinput.js"></script>
         <script src="../assets/bootstrap/js/bootstrap.min.js"></script>                    
 
 
         <script>
             var fetch = angular.module('fetch', []);
                 fetch.controller('dbCtrl', function ($scope, $http) {                
-                    $http.post("../assets/php/select.php").success(function(data){
+                    $http.post("../php/select.php").success(function(data){
                         $scope.data = data;
                         console.log($scope.data);                
                     })
@@ -304,13 +349,6 @@ if(isset($_SESSION['email'])){
                     .error(function() {
                         $scope.data = "error in fetching dat";
                     });
-                
-                    $scope.count= 0;
-                    $scope.myFunc = function(){
-                        $scope.count++;
-                    }
-
-
 
                     $scope.usuarios = function(){
                         $http.post("../assets/php/select.php",{elige:'usuarios'}).success(function(user){                        
@@ -318,6 +356,17 @@ if(isset($_SESSION['email'])){
                             console.log($scope.data);                
                         })
                     }
+
+                    $http.post("../php/verdocuments.php").success(function(document){                        
+                            $scope.document = document;
+                            console.log($scope.document);                
+
+                        })  
+                    $scope.mostrarTema = function(tema){
+                    $scope.temaActual=tema;              
+                    //alert($scope.temaActual.pdf);              
+                    }                            
+                    
 
                 });      
         </script>              

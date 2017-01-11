@@ -17,6 +17,7 @@
         <link href="../../assets/css/metisMenu.min.css" rel="stylesheet">
         <link href="../../assets/css/metisMenu.css" rel="stylesheet">
         <link href="../../assets/css/mensaje.css" rel="stylesheet">        
+        <link href="../../assets/css/subirarchivo.css" rel="stylesheet">                
         <!-- Style CSS -->        
         <link rel="stylesheet" type="text/css" href="../../assets/css/design.css">
         <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome/css/font-awesome.css">
@@ -193,7 +194,7 @@
                             <a href="../index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
                         </li>
                         <li>
-                            <a href="../documentos.php"><i class="fa fa-folder-open-o fa-fw"></i> Documentos</a>
+                            <a href="../documentos.php><i class="fa fa-folder-open-o fa-fw"></i> Documentos</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-envelope-o fa-fw"></i> Mailbox<span class="fa arrow"></span></a>
@@ -266,51 +267,114 @@
                 <li class="active">
                     <strong>Hoy!</strong>                     
                 </li>
-            </ol>   
-             <div class="col-md-9 col-md-push-3">
-                <section>           
-                    <div class="row">               
-                        <h1 class="text-center">Chat: <small>Programando Brother's</small></h1> 
-                        <hr>
-                    </div>  
-                    <div class="row">
-                        <form id="formChat" role="form">                        
+            </ol>    
+
+            
+            <div class="col-lg-4" style="overflow:scroll;height:400px;">
+                <div class="media" ng-repeat="users in user">
+                <a class="pull-left" href="javascript:mostrar('flotante');" ng-click="mostrarUser(users)">
+                    <img class="media-object dp img-circle" src="../{{users.fotoperfil}}" style="width: 50px;height:50px;">
+                </a>
+                    <div class="media-body">
+                        <h4 class="media-heading">{{users.nombre}} <small> {{users.nombredpto}}</small></h4>
+                        <h5>{{users.profesion}}</h5>
+                        <hr style="margin:8px auto">
+                        <span class="label label-info">{{users.nombredpto}}</span>                        
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-5" style="display:none;" id="flotante">                
+                <div class="profile-env">
+                    <section class="profile-feed">
+                        <a href="javascript:cerrar('flotante');">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </a>
+                        <h5>Chat con:{{userActual.nombre}}</h5>                       
+                    
+                        <form class="profile-post-form" id="formChat" role="form">                        
                             <div class="form-group">                            
                                 <div class="row">
                                     <div class="col-md-12" >
                                         <div id="conversation" style="height:200px; border: 1px solid #CCCCCC; padding: 12px;  border-radius: 5px; overflow-x: hidden;">
-                                            
+                                        
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group" ng-repeat="perfil in data">             
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" placeholder="Enter Message"  class="form-control" rows="3" style="resize: none;"></textarea>
-                                <input type="hidden" name="idusuario" value={{perfil.idUsuarios}} />
-                            </div>
-                            <button id="send" class="btn btn-primary" >Send</button>                        
-                        </form>
-                    </div>
-                </section>               
+                            </div>                                
+                                <div class="form-group" ng-repeat="perfil in data">                                
+                                     <textarea required="" id="message" name="message" placeholder="Enter Message"  class="form-control autogrow" rows="3" style="resize: none;"></textarea>
+                                    </textarea>  
+                                    <input type="hidden" name="nombre" value={{perfil.nombre}} />
+                                    <input type="hidden" name="iduser" value={{perfil.idUsuarios}} />
+                                    <input type="hidden" name="idusuario" value={{userActual.idUsuarios}} />
+                                    <input type="hidden" name="nombreuserdos" value={{userActual.nombre}} />
+                                    <input type="hidden" name="correore" value={{userActual.email}} />
+
+                                    <div class="form-options">                        
+                                        <div class="post-type">                
+                                            <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                                <i class="fa fa-camera fa-fw"></i>
+                                                Foto
+                                            </a>
+                                            <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                                <i class="fa fa-folder fa-fw"></i>
+                                                Archivo
+                                            </a>
+                                            <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Check-in">
+                                                <i class="entypo-location"></i>
+                                            </a>
+                                            <input type="hidden" name="idusuario" value={{perfil.idUsuarios}} />
+                                            
+                                        </div>                                            
+                                    </div>                             
+                                </div>
+                            <button id="send" class="btn btn-primary" >Send</button>                                    
+                        </form>                        
+                    </section>
+                </div>
             </div>
-            <div class="col-md-3 col-md-pull-9">
-                <h3 class="title">Usuarios</h3>                    
-                      <ul  ng-repeat="usuario in user">
-                          <li>
-                              <a href="#" ng-click="usuarioschat(usuario.idUsuarios)"><h5><img src="../{{usuario.fotoperfil}}" width="20">{{usuario.nombre}} {{usuario.apellidos}}</h5></a>
-                          </li>                          
-                      </ul>                      
-            </div>         			
-	</div>	        
-</div>  
+        </div>
+    </div>
         <script src="../../assets/js/angular.js"></script>      
         <script src="../../assets/js/jquery.js"></script>         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>             
         <script src="../../assets/js/metisMenu/metisMenu.min.js"></script> 
         <script src="../../assets/js/sb-admin-2.js"></script>
         <script src="../../assets/bootstrap/js/bootstrap.min.js"></script>         
+        <script languague="javascript">
+        function mostrar(id) {
+            div = document.getElementById(id);
+            div.style.display = '';                             
 
+        }
+        
+        function cerrar(id) {
+        div = document.getElementById(id);
+        div.style.display = 'none';
+        }
+    </script>
+
+        <script>
+        /**
+         * Function para posicionar el cursor al final de un input o textarea
+         * Tiene que recibir el id del elemento
+         */
+        function ponerElCursorAlFinal(id)
+        {
+            var obj = $("#"+id),
+ 
+            // Guardamos en una variable el contenido
+            val = obj.val();
+ 
+            // Ponemos el foco, limpiamos el contenido y volvemos a poner
+            // nuevamente el mismo contenido
+            obj.focus().val("").val(val);
+ 
+            // Movemos el scroll
+            obj.scrollTop(obj[0].scrollHeight);
+        }
+    </script>
 
         <script>
             var fetch = angular.module('fetch', []);
@@ -330,14 +394,38 @@
                     $scope.myFunc = function(){
                         $scope.count++;
                     }
+                /*
+                $scope.mostrarUser = function( id ) {
+                    $scope.userActual=id;
+                    $http({              
+                    method: 'POST',
+                    url:  'conversation2.php',
+                    data: { recordId : id }              
+                    }).then(function (response) {                            
+                        //$scope.getPeople();
+                        console.log($scope.userActual.idUsuarios);
+                      //console.log(response.data,response.status);              
+                    }, function (response) {              
+                        console.log($scope.userActual.idUsuarios);
+                      //console.log(response.data,response.status);              
 
-                $scope.usuarioschat = function(id){
-                    $scope.idUsuarios=id;          
-                    $http.post("conversation.php",{elige:'userchat',idUsuarios:$scope.idUsuarios}).success(function(usuariochat){
-                    $scope.usuariochat=usuariochat;                 
-                    console.log($scope.usuariochat);
-                        })
-                    }
+                    });
+                };
+                */
+                
+                $scope.mostrarUser = function(id){
+                    $scope.userActual=id;
+                    //alert($scope.userActual.idUsuarios);
+                    $http.post("conversation.php",{elige:'postdata', userActual:$scope.userActual.idUsuarios}).success(function(iduser){ 
+                        //$scope.detallediputado=detallediputado;                 
+                        $scope.idusuario=iduser;
+
+                        console.log($scope.idusuario);
+                        });                
+                    //console.log($scope.userActual.idUsuarios);                
+                } 
+                       
+                
                 });      
         </script>              
         <script>
@@ -363,25 +451,38 @@
 				});
 			}
 
+            var enviarusuario = function(){
+                $('#enviar').on( "click",function(e){
+                    e.preventDefault();
+                    var frm = $("#formUser").serialize();
+                    $.ajax({
+                        type: "POST",
+                        url: "conversation.php",
+                        data: frm
+                    }).done(function(info){
+                        console.log( info );                                                
+                    })
+                });
+            }
+
 			var loadOldMessages = function(){
 				$.ajax({
 					type: "POST",
 					url: "conversation.php"
 				}).done(function(info){
-					$("#conversation").html(info);
+					$("#conversation").html(info).scrollTop($("#conversation")[0].scrollHeight);;
 					$("#conversation p:last-child").css({"background-color":"lightgreen","padding-botton":"20px"});
-					var altura = $("#conversation").prop("scrollHeight");
-						$("#conversation").scrollTop(altura);
 				});
-			}
-			
+                
+			}	
         </script>
           <script>
-    $("#menu-toggle").click(function(e) {
+        $("#menu-toggle").click(function(e) {
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     });
     </script>
+
 </body>
 <?php 
 }

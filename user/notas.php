@@ -16,6 +16,7 @@ if(isset($_SESSION['email'])){
         <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 
         <link href="../assets/css/metisMenu.min.css" rel="stylesheet">
         <link href="../assets/css/metisMenu.css" rel="stylesheet">
+        <link href="../assets/css/notas.css" rel="stylesheet">
         <!-- Style CSS -->        
         <link rel="stylesheet" type="text/css" href="../assets/css/design.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.css">
@@ -282,12 +283,55 @@ if(isset($_SESSION['email'])){
                 </li>
             </ol>   
 
-            
+            <div class="notes-env">        
+            <div class="notes-header">
+                <h2>Mis Notas!</h2>
+                
+                <div class="right">
+                    <a class="btn btn-primary btn-icon icon-left" id="add-note">
+                        <i class="entypo-pencil"></i>
+                        Nuevo
+                    </a>
+                </div>
+            </div>
+            <div class="notes-list">            
+                <ul class="list-of-notes">                
+                    <!-- predefined notes -->                                  
+                    <li>
+                        <a href="#">
+                            <strong>Es un ejemplo de un encabezado de nota</strong>
+                            <span>Sub encabesado de la nota</span>
+                        </a>
+                        
+                        <button class="note-close">&times;</button>
+                        
+                        <div class="content">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+                    </li>
+                    
+                    <!-- this will be automatically hidden when there are notes in the list -->
+                    <li class="no-notes">
+                        There are no notes yet!
+                    </li>
+                </ul>
+                
+                
+                <div class="write-pad">
+                    <textarea class="form-control autogrow"></textarea>
+                </div>
+                
+            </div>
+        </div>
         </div>        
 </div>  
 
         <script src="../assets/js/angular.js"></script>      
         <script src="../assets/js/jquery.js"></script> 
+        <script src="../assets/js/notas.js"></script> 
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/metisMenu/metisMenu.min.js"></script> 
         <script src="../assets/js/sb-admin-2.js"></script>
@@ -297,7 +341,7 @@ if(isset($_SESSION['email'])){
         <script>
             var fetch = angular.module('fetch', []);
                 fetch.controller('dbCtrl', function ($scope, $http) {                
-                    $http.post("../assets/php/select.php").success(function(data){
+                    $http.post("../php/select.php").success(function(data){
                         $scope.data = data;
                         console.log($scope.data);                
                     })
@@ -309,15 +353,6 @@ if(isset($_SESSION['email'])){
                     $scope.count= 0;
                     $scope.myFunc = function(){
                         $scope.count++;
-                    }
-
-
-
-                    $scope.usuarios = function(){
-                        $http.post("../assets/php/select.php",{elige:'usuarios'}).success(function(user){                        
-                            $scope.data = data;
-                            console.log($scope.data);                
-                        })
                     }
 
                 });      

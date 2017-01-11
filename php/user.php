@@ -7,7 +7,8 @@
     	$usuario=$_SESSION['email'];
 		//echo json_encode($usuario);
 		
-		$result = mysqli_query($conect, "select * from usuarios,login,departamento,userpersonal where usuarios.idUsuarios=login.Usuarios_idUsuarios && usuarios.idUsuarios=departamento.Usuarios_idUsuarios && usuarios.idUsuarios=userpersonal.Usuarios_idUsuarios ");
+		$result = mysqli_query($conect, "select * from usuarios,login,departamento,userpersonal where usuarios.idUsuarios=login.Usuarios_idUsuarios && usuarios.idUsuarios=departamento.Usuarios_idUsuarios && usuarios.idUsuarios=userpersonal.Usuarios_idUsuarios and email!='$usuario'");
+    	//$result = mysqli_query($conect, "select * from usuarios,login where idUsuarios=Usuarios_idUsuarios and email!='$usuario' ");
 		$arr = array();
 		while($row = $result->fetch_assoc()) {
 			$arr[] = $row;

@@ -3,7 +3,6 @@
     include '../php/serv.php';
     if(isset($_SESSION['email'])){        
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
     <head>        
@@ -17,9 +16,15 @@
         <link href="../assets/css/metisMenu.min.css" rel="stylesheet">
         <link href="../assets/css/metisMenu.css" rel="stylesheet">
         <link href="../assets/css/mensaje.css" rel="stylesheet">
+        <link href="../assets/css/toastr.css" rel="stylesheet">
         <!-- Style CSS -->        
         <link rel="stylesheet" type="text/css" href="../assets/css/design.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
     </head>    
 
     <body ng-app="fetch" id="page-top" data-spy="scroll" data-target=".navbar">        
@@ -38,7 +43,7 @@
             <ul class="nav navbar-top-links navbar-right">      
                 <li class="dropdown" >                    
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="mensajes">
-                        <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-envelope fa-fw"></i><span class="badge badge-secondary" style="position: absolute; top: 6px; font-size: 10px; min-width: 17px; line-height: 12px; padding: 2px; right: 6px; background-color: red">4</span> <i class="fa fa-caret-down"></i>
                     </a>                    
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
@@ -65,7 +70,7 @@
                 <!-- /.dropdown -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="Archivos">
-                        <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-tasks fa-fw"></i><span class="badge badge-secondary" style="position: absolute; top: 6px; font-size: 10px; min-width: 17px; line-height: 12px; padding: 2px; right: 6px; background-color: red">2</span> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-tasks">
                         <li>
@@ -90,13 +95,13 @@
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         </li>
-                    </ul>
+                    </ul>                    
                     <!-- /.dropdown-tasks -->
                 </li>
-                <!-- /.dropdown -->
+                <!-- /.dropdown -->                
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="Alertas">
-                        <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                        <i class="fa fa-bell fa-fw"></i><span class="badge badge-secondary" style="position: absolute; top: 6px; font-size: 10px; min-width: 17px; line-height: 12px; padding: 2px; right: 6px; background-color: red">2</span> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-alerts">
                         <li>
@@ -182,11 +187,11 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Buscar.." name="q">
+                            <div class="input-group">                                
+                                <input type="text" class="form-control" placeholder="Buscar.." id="busqueda">
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
+                                </div>                                         
                             </div>    
                         </li>
                         <li>
@@ -255,9 +260,7 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-        </nav>
-        
-        
+        </nav>        
         <div id="page-wrapper" ng-repeat="perfil in data">         
             <ol class="breadcrumb bc-3" >
                 <li>
@@ -266,41 +269,42 @@
                 <li class="active">
                     <strong>Hoy!</strong>                     
                 </li>
-            </ol>   
-        <div class="profile-env">
-            <section class="profile-feed">
-                <!-- profile post form -->
-                <form class="profile-post-form" method="post" action="../php/post.php">                    
-                    <textarea class="form-control autogrow" name="mensaje" placeholder="What's on your mind?" style="resize: none;"></textarea>                    
-                    <div class="form-options">                        
-                        <div class="post-type">                
-                            <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
-                                <i class="entypo-camera"></i>
-                            </a>
-                            <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
-                                <i class="entypo-attach"></i>
-                            </a>
-                            <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Check-in">
-                                <i class="entypo-location"></i>
-                            </a>
-                            <input type="hidden" name="idusuario" value={{perfil.idUsuarios}} />
+            </ol>                
+            <div class="profile-env">
+                <section class="profile-feed">
+                    <!-- profile post form -->
+                    <form class="profile-post-form" method="post" action="../php/post.php">                    
+                        <textarea class="form-control autogrow" name="mensaje" placeholder="What's on your mind?" style="resize: none;" required=""></textarea>                    
+                        <div class="form-options">                        
+                            <div class="post-type">                
+                                <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Upload a Picture">
+                                    <i class="fa fa-camera fa-fw"></i>
+                                    Foto
+                                </a>
+                                <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Attach a file">
+                                    <i class="fa fa-folder fa-fw"></i>
+                                    Archivo
+                                </a>
+                                <a href="#" class="tooltip-primary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Check-in">
+                                    <i class="entypo-location"></i>
+                                </a>
+                                <input type="hidden" name="idusuario" value={{perfil.idUsuarios}} />
+                            </div>
+                            <div class="post-submit">
+                                <button id="send" name="sends" class="btn btn-primary" >Publicar</button> 
+                            </div>
                         </div>
-                        <div class="post-submit">
-                            <button id="send" class="btn btn-primary" >Publicar</button> 
-                        </div>
-                    </div>
-                </form>  
-            </section>
-        </div>
-
+                    </form>  
+                </section>
+            </div>
             <h3 class="title">Publicaciones.</h3>            
-            <div class="row">   
+            <div class="row">               
                 <div class="row">
                     <div class="col-sm-6" style="overflow:scroll;height:450px;">
                         <div ng-repeat="publicacion in post" class="panel panel-default">
-                        <h3><img class="img-rounded" width="30" src="{{publicacion.fotoperfil}}">{{publicacion.nombre}} {{publicacion.apellidos}}</h3>
-                        <h5>{{publicacion.fecha}}</h5>
-                        <p>{{publicacion.mensaje}}.</p>
+                        <h4 style="padding: 5px" ><img class="img-rounded"  width="30" src="{{publicacion.fotoperfil}}">{{publicacion.nombre}} {{publicacion.apellidos}}</h4>
+                        <h6 style="padding: 5px">{{publicacion.fecha}}</h6>
+                        <p style="padding: 5px">{{publicacion.mensaje}}.</p>
                         </div>
                     </div>                    
                     <div class="col-md-6 panel panel-default">     
@@ -337,7 +341,7 @@
                     </div>
             </div>
         </div>
-                <div class="row panel panel-default" ng-repeat="perfil in data">                    
+                <div class="row panel panel-default">                    
                     <div class="col-sm-4">
                         <h3>Columna 2</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
@@ -352,7 +356,7 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p> 
                         <p>
                         consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                        cillum dolore eiusmod fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
                         proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>                    
                         <img align="center" src="../assets/images/file2.png">
                     </div>                                        
@@ -395,6 +399,7 @@
 </div>  
         <script src="../assets/js/angular.js"></script>      
         <script src="../assets/js/jquery.js"></script> 
+        <script src="../assets/js/toastr.js"></script> 
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/metisMenu/metisMenu.min.js"></script> 
         <script src="../assets/js/sb-admin-2.js"></script>
@@ -414,7 +419,58 @@
                             console.log($scope.post);                
                         })                    
                 });      
-        </script>              
+        </script>                      
+        <script type="text/javascript">
+            jQuery(document).ready(function($)
+            {
+                $("#success_msg_1").click(function(ev)
+                {                    
+                    ev.preventDefault();
+                    
+                    var opts = {
+            "closeButton": true,
+            "debug": false,
+            "positionClass": "toast-bottom-left",
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        
+        toastr.success("Tu publicacion ha sido publicado satisfactoriamente.", "Servidor:", opts);
+        
+                });
+            $("#sends").click(function(ev)
+                {
+                    
+                    ev.preventDefault();
+                    
+                    var opts = {
+            "closeButton": true,
+            "debug": false,
+            "positionClass": "toast-bottom-left",
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "1000",
+            "timeOut": "5000",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
+
+        toastr.success("Tu publicacion ha sido publicado satisfactoriamente.", "Servidor:", opts);    
+                });
+                
+            });
+        </script>
 </body>
 <?php 
 }

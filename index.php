@@ -7,7 +7,6 @@
     }
 ?>
 <!-- -->
-
 <!DOCTYPE html>
 <html ng-app="fetch" lang="en">
     <head>
@@ -15,24 +14,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <!-- importante para el responsive -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Uniquebiz is a responsive creative business template">
+        <meta name="description" content="Montaplast Automovite Systems Mexico S De Rl De Cv: Original Consignee Address: BOULEVARD VIA ATLIXCAYOTL 5208: Original Consignee City: San Andres Cholula">
         <meta name="keywords" content="onepage, portfolio, corporate, business, parallax, creative, agency">
         <meta name="author" content="trendytheme.net">
 
         <title>Montaplast</title>
-
-        <!--  favicon -->
-        <link rel="shortcut icon" href="assets/images/ico/icon.png">
-        <!--  apple-touch-icon -->
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/images/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/images/ico/apple-touch-icon-57-precomposed.png">
-
-
-        <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700' rel='stylesheet' type='text/css'>
-        <!-- Animate CSS -->
-        <link href="assets/css/animate.css" rel="stylesheet">
         <!-- jvectormap CSS -->
         <link href="assets/css/jquery-jvectormap.css" rel="stylesheet">
         <!-- FontAwesome CSS -->
@@ -40,13 +26,12 @@
         <!-- magnific-popup -->
         <link href="assets/magnific-popup/magnific-popup.css" rel="stylesheet">
         <!-- owl.carousel -->
-        <link href="assets/owl.carousel/assets/owl.carousel.css" rel="stylesheet">
-        <link href="assets/owl.carousel/assets/owl.theme.default.min.css" rel="stylesheet">
+        <link href="assets/owl.carousel/assets/owl.carousel.css" rel="stylesheet">        
         <!-- Bootstrap -->
         <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
         <!-- Style CSS -->
         <link href="style.css" rel="stylesheet">
-
+        <link href="assets/css/login.css" rel="stylesheet">
         
     </head>
 
@@ -99,9 +84,7 @@
                         <li class="active"><a class="page-scroll" href="#home">Inicio</a></li>
                         <li><a class="page-scroll" href="#about">Empresa</a></li>
                         <li><a class="page-scroll" href="#service">Tecnologias</a></li>
-                        <li><a class="page-scroll" href="#work">Productos</a></li>
-                        <li><a class="page-scroll" href="#team">Servicios</a></li>
-                        <li><a class="page-scroll" href="#blog">Ofertas de Empleo</a></li>
+                        <li><a class="page-scroll" href="#work">Galería</a></li>                        
                         <li><a class="page-scroll" href="#contact">Contacto</a></li>
                         <li><a data-toggle="modal" class="page-scroll" href="#ventana1">Ingresar</a></li>
                     </ul>
@@ -110,8 +93,9 @@
             </div><!-- .container -->
         </nav>
         <!-- Navigation end -->
-
+        
         <!--   Login Ventana Emergente -->
+        <!--
         <div class="modal fade" id="ventana1">
             <div class="modal-dialog" id="login">
                 <div class="modal-content" >
@@ -128,6 +112,35 @@
                 </div>
             </div>
         </div>
+        -->
+        <div class="container modal fade" id="ventana1">
+            <div class="card card-container modal-dialog">            
+                <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin" action="php/validar.php" method="post">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Correo Electronico" required autofocus>
+                    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required>
+                    <input type="password" id="inputPassword" name="id_empleado" class="form-control" placeholder="Numero de Seguridad" required>
+                    <button class="btn btn-lg btn-primary  btn-signin" name="login" type="submit">Iniciar</button>
+                </form><!-- /form -->
+                <a href="#ventana2"  data-toggle="modal" class="forgot-password page-scroll">
+                Haz Olvidado tu Contraseña?
+                </a>
+            </div><!-- /card-container -->  
+        </div><!-- /container -->
+        <div class="container modal fade" id="ventana2">
+            <div class="card card-container modal-dialog">            
+                <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+                <p id="profile-name" class="profile-name-card"></p>
+                <form class="form-signin" action="php/validar.php" method="post">
+                    <span id="reauth-email" class="reauth-email"></span>
+                    <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Correo Electronico" required autofocus>                    
+                    <button class="btn btn-lg btn-primary  btn-signin" name="login" type="submit">Recuperar</button>
+                </form><!-- /form -->                
+            </div><!-- /card-container -->  
+        </div><!-- /container -->
+
 
         <!-- Slider Section -->
         <section id="home" class="slider-section">
@@ -177,7 +190,7 @@
 
                     <div class="col-md-6 col-sm-4 hidden-xs carousel-img-wrap">
                       <div class="carousel-img layer-two">
-                        <img src="assets/images/banner.png" class="img-responsive animated fadeIn animation-delay-3" alt="Image" >
+                        <img src="assets/images/portfolio/bann2.png" class="img-responsive animated fadeIn animation-delay-3" alt="Image" >
                       </div><!-- /.carousel-img-->
                     </div><!-- /.col-md-6 -->
                   </div><!-- /.row -->
@@ -429,8 +442,6 @@
             </div><!-- /.container -->
         </section>
         <!-- Service Section End -->
-
-
         <!-- Work Section -->
         <section id="work" class="latest-work-section section-padding">
             <div class="container">
@@ -445,14 +456,230 @@
                 <div class="work-carousel mt-70">
 
                     <figure class="thumb-wrapper">
-                        <img class="img-responsive" src="assets/images/portfolio/image1.jpg" alt="image">
+                        <img class="img-responsive" src="assets/images/portfolio/seis.jpg" alt="image">
 
                         <div class="bg-overlay">
                           <div class="portfolio-content">
                             <!-- Portfolio Icons -->
                             <div class="portfolio-icon-wrapper">
                               <a href="single-project.html"><i class="fa fa-link"></i></a>
-                              <a class="tt-lightbox" href="assets/images/portfolio/image1.jpg"><i class="fa fa-search"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/seis.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/uno.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/uno.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/tres.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/tres.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/cuatro.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/cuatro.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/cinco.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/cinco.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/siete.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/siete.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/ocho.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/ocho.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/nueve.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/nueve.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/diez.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/diez.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/once.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/once.jpg"><i class="fa fa-search"></i></a>
                             </div>
                             <!-- End Portfolio Icons -->
 
@@ -492,6 +719,77 @@
                         </div>
                     </figure>
 
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/doce.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/doce.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/trece.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/trece.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
+
+                    <figure class="thumb-wrapper">
+                        <img class="img-responsive" src="assets/images/portfolio/image1.jpg" alt="image">
+
+                        <div class="bg-overlay">
+                          <div class="portfolio-content">
+                            <!-- Portfolio Icons -->
+                            <div class="portfolio-icon-wrapper">
+                              <a href="single-project.html"><i class="fa fa-link"></i></a>
+                              <a class="tt-lightbox" href="assets/images/portfolio/image1.jpg"><i class="fa fa-search"></i></a>
+                            </div>
+                            <!-- End Portfolio Icons -->
+
+                            <!-- Portfolio Title & Info -->
+                            <div class="portfolio-text">
+                              <h3>Portfolio Title</h3>
+                              <div class="portfolio-meta">
+                                <a href="#">UX Design</a>
+                              </div>
+                            </div>
+                            <!-- End Portfolio Title & Info -->
+                          </div>
+                        </div>
+                    </figure>
                     <figure class="thumb-wrapper">
                         <img class="img-responsive" src="assets/images/portfolio/image3.jpg" alt="image">
 
@@ -570,300 +868,7 @@
         <!-- Works Section End -->
 
 
-        <!-- Team Section -->
-        <section id="team" class="team-section section-padding">
-            <div class="container">
-                <div class="section-title center">
-                    <h2>Meet <span>Our Team</span></h2>
-                </div>
-                <div class="team-section-intro text-center mt-30">
-                    <p>Progressively exploit cost effective technologies after value-added e-markets. Distinctively productize B2C value rather than market positioning methods of empowerment. Quickly evolve next-generation data after long-term high-impact sources.</p>
-                </div>
-            </div>
-
-            <div class="team-bg-container text-center">
-                <img src="assets/images/team-bg.jpg" alt="">
-            </div>
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="team-member text-center">
-                            <div class="team-img">
-                                <img src="assets/images/team/team-1.jpg" alt=""/>
-                                <div class="team-intro">
-                                    <h3>John Doe</h3>
-                                </div>
-                            </div><!-- /.team-img -->
-                            <div class="team-hover">
-                                <div class="desk">
-                                    <h4>John Doe</h4>
-                                    <p>Authoritatively re-engineer enterprise data for cross-unit products.</p>
-                                </div>
-                                <div class="social-link">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div><!-- /.team-hover -->
-                        </div><!-- /.team-member -->
-                    </div><!-- /.col-md-3 -->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="team-member text-center">
-                            <div class="team-img">
-                                <img src="assets/images/team/team-2.jpg" alt=""/>
-                                <div class="team-intro">
-                                    <h3>Bin Jonathon</h3>
-                                </div>
-                            </div><!-- /.team-img -->
-                            <div class="team-hover">
-                                <div class="desk">
-                                    <h4>Bin Jonathon</h4>
-                                    <p>Authoritatively re-engineer enterprise data for cross-unit products.</p>
-                                </div>
-                                <div class="social-link">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div><!-- /.team-hover -->
-                        </div><!-- /.team-member -->
-                    </div><!-- /.col-md-3 -->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="team-member text-center">
-                            <div class="team-img">
-                                <img src="assets/images/team/team-3.jpg" alt=""/>
-                                <div class="team-intro">
-                                    <h3>Farhana Bithi</h3>
-                                </div>
-                            </div><!-- /.team-img -->
-                            <div class="team-hover">
-                                <div class="desk">
-                                    <h4>Farhana Bithi</h4>
-                                    <p>Authoritatively re-engineer enterprise data for cross-unit products.</p>
-                                </div>
-                                <div class="social-link">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div><!-- /.team-hover -->
-                        </div><!-- /.team-member -->
-                    </div><!-- /.col-md-3 -->
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="team-member text-center">
-                            <div class="team-img">
-                                <img src="assets/images/team/team-4.jpg" alt=""/>
-                                <div class="team-intro">
-                                    <h3>Asfaq Nipun</h3>
-                                </div>
-                            </div><!-- /.team-img -->
-                            <div class="team-hover">
-                                <div class="desk">
-                                    <h4>Asfaq Nipun</h4>
-                                    <p>Authoritatively re-engineer enterprise data for cross-unit products.</p>
-                                </div>
-                                <div class="social-link">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                                </div>
-                            </div><!-- /.team-hover -->
-                        </div><!-- /.team-member -->
-                    </div><!-- /.col-md-3 -->
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-
-        </section>
-        <!-- Team Section End -->
-
-
-
-        <!-- Client Section -->
-        <section class="client-section section-padding gray-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="client-testimonial">
-                            <h2>What others say about us</h2>
-                            <ul class="testimonial mt-30">
-                                <li>
-                                    <div class="avatar">
-                                        <a href="#"><img src="assets/images/client-thumb-1.jpg" alt="Customer Thumb"></a>
-                                    </div>
-                                    <div class="content">
-                                        <div class="testimonial-meta">
-                                            Bin Burhan
-                                            <span>trendytheme.com</span>
-                                        </div>
-
-                                        <p>Phosfluorescently create long-term high-impact leadership skills after cooperative niches. Quickly optimize technically sound web-readiness. </p>
-                                    </div>
-                                </li>
-
-                                <li>
-                                    <div class="avatar">
-                                        <a href="#"><img src="assets/images/client-thumb-2.jpg" alt="Customer Thumb"></a>
-                                    </div>
-                                    <div class="content">
-                                        <div class="testimonial-meta">
-                                            John Doe
-                                            <span>trendytheme.com</span>
-                                        </div>
-
-                                        <p>Phosfluorescently create long-term high-impact leadership skills after cooperative niches. Quickly optimize technically sound web-re.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div><!-- /.client-testimonial -->
-                    </div><!-- /.col-md-6 -->
-
-                    <div class="col-md-6">
-                        <div class="client-logo">
-                            <h2>Some of our best clinets</h2>
-                            <ul class="clients plus-box grid-3 mt-30">
-                                <li><a href="#"><img src="assets/images/client-logo/client-logo-1.png" alt="Clients"></a></li>
-                                <li><a href="#"><img src="assets/images/client-logo/client-logo-2.png" alt="Clients"></a></li>
-                                <li><a href="#"><img src="assets/images/client-logo/client-logo-3.png" alt="Clients"></a></li>
-                                <li><a href="#"><img src="assets/images/client-logo/client-logo-4.png" alt="Clients"></a></li>
-                                <li><a href="#"><img src="assets/images/client-logo/client-logo-5.png" alt="Clients"></a></li>
-                                <li><a href="#"><img src="assets/images/client-logo/client-logo-6.png" alt="Clients"></a></li>
-                            </ul>
-                        </div><!-- /.client-logo -->
-                    </div><!-- /.col-md-6 -->
-
-                </div><!-- /.row -->
-            </div><!-- /.container -->
-        </section>
-        <!-- Client Section End -->
-
-
-
-        <!-- Counter Section -->
-        <section class="counter-section">
-            <div class="dark-overlay"></div>
-            <div class="container">
-                <div class="row text-center">
-                    <div class="col-lg-3 col-xs-3 counter-wrap">
-                      <i class="fa fa-pencil"></i>
-                      <span class="timer">1249</span>
-                      <span class="count-description">Coffe Cups</span>
-                    </div> <!-- /.col-xs-3 -->
-
-                    <div class="col-lg-3 col-xs-3 counter-wrap">
-                      <i class="fa fa-code"></i>
-                      <span class="timer">5164</span>
-                      <span class="count-description">Lines Code</span>
-                    </div><!-- /.col-xs-3 -->
-
-                    <div class="col-lg-3 col-xs-3 counter-wrap">
-                      <i class="fa fa-pencil"></i>
-                      <span class="timer">2142</span>
-                      <span class="count-description">Pixel Design </span>
-                    </div><!-- /.col-xs-3 -->
-
-                    <div class="col-lg-3 col-xs-3 counter-wrap">
-                      <i class="fa fa-user"></i>
-                      <span class="timer">1142</span>
-                      <span class="count-description">Happy Clients</span>
-                    </div><!-- /.col-xs-3 -->
-                </div>
-            </div><!-- /.container -->
-        </section>
-        <!-- Counter Section -->
-
-
-        <!-- News Section -->
-        <section id="blog" class="news-section section-padding">
-            <div class="container">
-                <div class="section-title">
-                    <h2>Latest <span class="light-text">News</span></h2>
-                    <div class="title-border-container">
-                        <div class="title-border"></div>
-                    </div>
-                </div>
-
-                <div class="row mt-70">
-                    <div class="col-md-6">
-                        <ul class="latest-blog-list">
-                            <li>
-                                <div class="date">
-                                    27
-                                    <span>Nov 2015</span>
-                                </div>
-                                <div class="blog-post">
-                                    <h3><a href="#">Phosfluorescently architect high-quality deliverables rather than client-based e-business.</a></h3>
-                                    <ul class="post-meta">
-                                        <li>By: <a href="#">admin</a></li>
-                                        <li>Cetagory: <a href="#">Internet</a>, <a href="#">Technlogy</a></li>
-                                        <li>Comment:<a href="#">0</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="date">
-                                    26
-                                    <span>Nov 2015</span>
-                                </div>
-                                <div class="blog-post">
-                                    <h3><a href="#">Phosfluorescently architect high-quality deliverables rather than client-based e-business.</a></h3>
-                                    <ul class="post-meta">
-                                        <li>By: <a href="#">admin</a></li>
-                                        <li>Cetagory: <a href="#">Internet</a>, <a href="#">Technlogy</a></li>
-                                        <li>Comment:<a href="#">0</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-
-                            <li>
-                                <div class="date">
-                                    25
-                                    <span>Nov 2015</span>
-                                </div>
-                                <div class="blog-post">
-                                    <h3><a href="#">Phosfluorescently architect high-quality deliverables rather than client-based e-business.</a></h3>
-                                    <ul class="post-meta">
-                                        <li>By: <a href="#">admin</a></li>
-                                        <li>Cetagory: <a href="#">Internet</a>, <a href="#">Technlogy</a></li>
-                                        <li>Comment:<a href="#">0</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-6">
-                        <div class="subscribe-wrapper text-center">
-                            <h3>Get a news letter</h3>
-                            <p>Objectively extend adaptive value whereas standardized models. Monotonectally pontificate high-payoff architectures vis-a-vis viral e-services.</p>
-
-                            <form class="subscribe-form mailchimp" role="form" method="post">
-
-                                <!-- to showing error message -->
-                                <label for="subscribeEmail" class="error"></label>
-
-                                <div class="input-group">
-                                    <input type="email" class="form-control" id="subscribeEmail" name="EMAIL" placeholder="Type your email">
-                                    <span class="input-group-btn">
-                                        <button type="submit" class="btn btn-primary text-uppercase">submit</button>
-                                    </span>
-                                </div><!-- /input-group -->
-
-                                <!-- to showing success messages -->
-                                <p class="subscription-success"></p>
-                            </form>
-                        </div>
-                    </div>
-
-                </div>
-
-
-            </div><!-- /.container -->
-        </section>
+        
         <!-- News Section End -->
 
 
@@ -909,7 +914,6 @@
                           <label class="sr-only" for="message">Mensaje</label>
                           <textarea name="message" class="form-control" id="message" rows="7" placeholder="Escribe El Mensaje"></textarea>
                         </div>
-
                         <button type="submit" name="submit" class="btn btn-primary btn-lg text-uppercase">Enviar</button>
                     </form>
                 </div>
@@ -930,8 +934,6 @@
             </div>
         </footer>
         <!-- Footer Section End -->
-
-
         <!-- Preloader -->
         <div id="preloader">
             <div id="status">
@@ -939,28 +941,18 @@
             </div>
         </div>
         <!-- End Preloader -->
-        <script type="text/javascript">
-        
+        <script type="text/javascript">        
         </script>
-
-
         <!--Mis jQuery -->
         <script src="assets/js/jquery-2.1.3.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/jquery.easing.min.js"></script>
         <script src="assets/js/smoothscroll.min.js"></script>
         <script src="assets/js/jquery.sticky.js"></script>
-        <script src="assets/js/jquery.inview.min.js"></script>
-        <script src="assets/js/jquery.countTo.min.js"></script>
-        <script src="assets/js/jquery.shuffle.min.js"></script>
-        <script src="assets/magnific-popup/jquery.magnific-popup.min.js"></script>
-        <script src="assets/js/jquery.BlackAndWhite.min.js"></script>
+        <script src="assets/magnific-popup/jquery.magnific-popup.min.js"></script>        
         <script src="assets/owl.carousel/owl.carousel.min.js"></script>
         <script src="assets/js/ajaxchimp.js"></script>
         <script src="assets/js/jquery-jvectormap-2.0.3.min.js"></script>
         <script src="assets/js/jquery-jvectormap-world-mill-en.js"></script>            
-        <script src="assets/js/scripts.js"></script>
-            
+        <script src="assets/js/scripts.js"></script>           
     </body>
-
 </html>
