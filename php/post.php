@@ -8,10 +8,11 @@
 				echo "entro";
 				$mensaje = $_POST['mensaje'];
 				$fecha = date('Y-m-d');
+				$hoy = date("H:i:s"); 
 				$iduser = $_POST['idusuario'];
 				echo "asta aqui bn";
 
-				$sql = "INSERT INTO post (idPost,mensaje,fecha,Usuarios_idUsuarios) values('','$mensaje','$fecha','$iduser')";
+				$sql = "INSERT INTO post (idPost,mensaje,fecha,Usuarios_idUsuarios,hora) values('','$mensaje','$fecha','$iduser','$hoy')";
 					$result = mysqli_query($conect, $sql);	
 						if ($result) 
 							# code...

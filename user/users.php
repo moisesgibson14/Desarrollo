@@ -19,7 +19,24 @@ if(isset($_SESSION['email'])){
         <!-- Style CSS -->        
         <link rel="stylesheet" href="../assets/css/design.css">
         <link rel="stylesheet" type="text/css" href="../assets/css/font-awesome/css/font-awesome.css">
-
+        <style type="text/css">
+            
+            
+            
+            
+            .user_div{clear:both;
+                    font-family: verdana;                    
+                    color:black;                     
+                    height:40px;
+                    margin:1px;
+                    padding:10px;
+                    width:280px;
+                    
+                }
+            .name{float:left;margin:0 0 0 10px;}            
+            a:link {text-decoration:none;}a:visited {text-decoration:none;}a:hover {text-decoration:none;}a:active {text-decoration:none;}
+        </style>
+        
     </head>
     
     <body  ng-app="fetch" id="page-top" data-spy="scroll" data-target=".navbar">        
@@ -279,17 +296,17 @@ if(isset($_SESSION['email'])){
             </div>
             
             <div class="col-md-3 col-sm-5">
-                
-                <form method="get" role="form" class="search-form-full">
-                
+                <form method="post" action="" role="form" name="search_form" id="search_form" class="search-form-full">                
                     <div class="form-group">
-                        <input type="text" class="form-control" name="s" id="search-input" placeholder="Search..." />                        
+                        <input type="text" class="form-control search_box" name="search" id="search_box" placeholder="Search..." autocomplete="off" />
+                        <div id="searchres" class="searchres" style="position: absolute; background-color: white; border-top: red;"></div>    
                         <i class="entypo-search"></i>
-                    </div>
-                    
+                    </div>                
                 </form>
                 
             </div>
+            
+            
         </div>
         <!-- Member Entries -->
         <!-- Single Member -->
@@ -330,6 +347,7 @@ if(isset($_SESSION['email'])){
 
 
         <script src="../assets/js/angular.js"></script>      
+        
         <script src="../assets/js/jquery.js"></script> 
         <script src="../assets/js/jquery.min.js"></script>
         <script src="../assets/js/metisMenu/metisMenu.min.js"></script> 
@@ -355,6 +373,48 @@ if(isset($_SESSION['email'])){
                     });                    
                 });                      
         </script>              
+        <script type="text/javascript">
+            $(function(){
+    $('#search').focus();
+    $('#search_form').submit(function(e){
+        e.preventDefault();
+    })
+
+    $('#search').keyup(function(){
+        var envio = $('#search').val();
+        $('#resultados').html('<h6 size=5 width=20% align=center><img src="../assets/images/cargar.gif" width="20" alt="" /> Cargando</h6>');
+        $.ajax({
+            type: 'POST',
+            url: '../php/buscador.php',
+            data: ('search='+envio),
+            success: function(resp){
+                if(resp!=""){
+                    $('#resultados').html(resp);
+                }
+            }
+        })
+    })
+}) 
+
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            $("#search_box").keyup(function(){
+                var search_string = $("#search_box").val();
+                if(search_string == ''){
+                    $("#searchres").html('');
+                }else{
+                    postdata = {'string' : search_string
+                }
+                    $.post("../php/buscador2.php",postdata,function(data){
+                     $("#searchres").html(data); 
+                    });
+                }});
+            });
+            function fillme(name){
+                $("#search_box").val(name);$("#searchres").html('');
+            }
+        </script>
 </body>
 <?php 
 }

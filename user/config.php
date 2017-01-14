@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include '../../assets/php/serv.php';
+include '../assets/php/serv.php';
 if(isset($_SESSION['email'])){
 ?>
 <!DOCTYPE html>

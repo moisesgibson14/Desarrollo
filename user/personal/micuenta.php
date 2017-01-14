@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include '../../assets/php/serv.php';
-if(isset($_SESSION['user'])){
+if(isset($_SESSION['email'])){
 ?>
 <!DOCTYPE html>
 <html ng-app="fetch" lang="en">

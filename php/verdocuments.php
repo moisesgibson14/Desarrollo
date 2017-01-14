@@ -7,7 +7,7 @@
     	$usuario=$_SESSION['email'];
 		//echo json_encode($usuario);
 		
-		$result = mysqli_query($conect, "select * from documentos where correo='$usuario'");
+		$result = mysqli_query($conect, "select * from documentos where correo='$usuario' order by id_documento desc");
 		$arr = array();
 		while($row = $result->fetch_assoc()) {
 			$arr[] = $row;

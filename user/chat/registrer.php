@@ -15,8 +15,9 @@
 	$hoy = date('H:i:s');
 	$usuario=$_POST['iduser'];
 	$idusuariodos =$_POST['idusuario'];
+	$fotoperfil =$_POST['fotoperfil'];
 		
-	$sql=" INSERT INTO chat(nombemisor,correoem,nombremitente,correore,mensaje,fecha,hora,Usuarios_idUsuarios,idUsuarioReceptor) values('$nomemisor','$correoem','$nomusuariodos','$correore','$message','$fecha','$hoy','$usuario','$idusuariodos')";
+	$sql=" INSERT INTO chat(nombemisor,correoem,nombremitente,correore,mensaje,fecha,hora,Usuarios_idUsuarios,idUsuarioReceptor,fotoperfil) values('$nomemisor','$correoem','$nomusuariodos','$correore','$message','$fecha','$hoy','$usuario','$idusuariodos','$fotoperfil')";
 	//$sql = "INSERT INTO post (idPost,mensaje,fecha,Usuarios_idUsuarios) values('','$mensaje','$fecha','$iduser')";
 	$result = mysqli_query($conect, $sql);
 	if ($result) 

@@ -24,6 +24,19 @@
   
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <style type="text/css">            
+            .user_div{clear:both;
+                    font-family: verdana;                    
+                    color:black;                     
+                    height:40px;
+                    margin:1px;
+                    padding:10px;
+                    width:280px;
+                    
+                }
+            .name{float:left;margin:0 0 0 10px;}            
+            a:link {text-decoration:none;}a:visited {text-decoration:none;}a:hover {text-decoration:none;}a:active {text-decoration:none;}
+        </style>
         
     </head>    
 
@@ -40,11 +53,15 @@
                 </button>
                 <img src="../assets/images/logooficial.png" alt="logo">                                                
             </div>            
-            <ul class="nav navbar-top-links navbar-right">      
+            <ul class="nav navbar-top-links navbar-right">                  
+                
+                
+                
                 <li class="dropdown" >                    
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#" title="mensajes">
                         <i class="fa fa-envelope fa-fw"></i><span class="badge badge-secondary" style="position: absolute; top: 6px; font-size: 10px; min-width: 17px; line-height: 12px; padding: 2px; right: 6px; background-color: red">4</span> <i class="fa fa-caret-down"></i>
                     </a>                    
+                
                     <ul class="dropdown-menu dropdown-messages">
                         <li>
                             <a href="#">
@@ -179,21 +196,32 @@
                             <a href="../php/logout.php"><i class="fa fa-sign-out fa-fw"></i> Salir</a>
                         </li>
                     </ul>
-                </li> 
+                </li>
+
+                
+                
+                
+
+                
                 <!-- /.dropdown -->
             </ul>        
             <!-- ---------------------------------------- -->
             <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
+                <div class="sidebar-nav navbar-collapse" >
                     <ul class="nav" id="side-menu">
                         <li>
-                            <div class="input-group">                                
-                                <input type="text" class="form-control" placeholder="Buscar.." id="busqueda">
+                            
+                    <form class="navbar-form" role="search">
+                        <div class="input-group">
+                            <input type="text" class="form-control search_box" name="search" id="search_box" placeholder="Search..." autocomplete="off" />
+                            <div id="searchres" class="searchres" style="position: absolute; background-color: white; border-top: red;"></div>
                                 <div class="input-group-btn">
                                     <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>                                         
-                            </div>    
-                        </li>
+                                </div>
+                        </div>
+                    </form>
+                
+                        </li>        
                         <li>
                             <a href="index.php"><i class="fa fa-home fa-fw"></i> Inicio</a>
                         </li>
@@ -301,12 +329,14 @@
             <div class="row">               
                 <div class="row">
                     <div class="col-sm-6" style="overflow:scroll;height:450px;">
-                        <div ng-repeat="publicacion in post" class="panel panel-default">
-                        <h4 style="padding: 5px" ><img class="img-rounded"  width="30" src="{{publicacion.fotoperfil}}">{{publicacion.nombre}} {{publicacion.apellidos}}</h4>
-                        <h6 style="padding: 5px">{{publicacion.fecha}}</h6>
-                        <p style="padding: 5px">{{publicacion.mensaje}}.</p>
+                        <div ng-repeat="publicacion in post" class="panel panel-default">                        
+                        <div class="panel-heading">
+                        <h4 style="padding: 5px; color: rgb(0, 63, 255)" ><img class="img-rounded"  width="30" src="{{publicacion.fotoperfil}}">{{publicacion.nombre}} {{publicacion.apellidos}}</h4>
+                        <h6 style="padding: 5px"><i class="fa fa-calendar fa-fw"></i>{{publicacion.fecha}}<i class="fa fa-clock-o fa-fw"></i>{{publicacion.hora}}</h6>
                         </div>
-                    </div>                    
+                        <p style="padding: 5px">{{publicacion.mensaje}}.</p>                        
+                        </div>
+                    </div>                                        
                     <div class="col-md-6 panel panel-default">     
                         <div class="panel minimal minimal-gray">
                             <div class="panel-heading">
@@ -470,6 +500,24 @@
                 });
                 
             });
+        </script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+            $("#search_box").keyup(function(){
+                var search_string = $("#search_box").val();
+                if(search_string == ''){
+                    $("#searchres").html('');
+                }else{
+                    postdata = {'string' : search_string
+                }
+                    $.post("../php/buscador2.php",postdata,function(data){
+                     $("#searchres").html(data); 
+                    });
+                }});
+            });
+            function fillme(name){
+                $("#search_box").val(name);$("#searchres").html('');
+            }
         </script>
 </body>
 <?php 

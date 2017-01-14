@@ -2,6 +2,12 @@
     session_start();
     include '../php/serv.php';
     if(isset($_SESSION['email'])){
+        $correo =$_SESSION['email'];        
+        require_once('../php/bdd.php');
+        $sql = "SELECT id, title, start, end, color FROM events where correo='$correo' ";
+        $req = $bdd->prepare($sql);
+        $req->execute();
+        $events = $req->fetchAll();    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +37,10 @@
         <script src="../assets/js/metisMenu/metisMenu.min.js"></script> 
         <script src="../assets/js/sb-admin-2.js"></script>
         <script src="../assets/bootstrap/js/bootstrap.min.js"></script>                    
-
+        
+    
+    
+    
         
 
     </head>
@@ -191,13 +200,7 @@
                         </li>
                     </ul>
                 </li> 
-                                
-
-                
-
-
-                    
-    
+                                    
                 <!-- /.dropdown -->
             </ul>
 
@@ -291,64 +294,121 @@
                 <li class="active">
                     <strong>Calendario</strong>                     
                 </li>
-            </ol>   
-            
-            <div class="calendar-env">
-            
-            <!-- Calendar Body -->
-            <div class="calendar-body">
-                
-                <div id="calendar"></div>
-                
-                
-            </div>
-            
-            <!-- Sidebar -->
-            <div class="calendar-sidebar">
-                
-                <!-- new task form -->
-                <div class="calendar-sidebar-row">
-                        
-                    <form role="form" id="add_event_form">
-                    
-                        <div class="input-group minimal">
-                            <input type="text" class="form-control" placeholder="Agregar evento.." />
-                            
-                            <div class="input-group-addon">
-                                <i class="fa fa-pencil"></i>
-                            </div>
-                        </div>
-                        
-                    </form>
-                    
+            </ol>       
+        <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">                
+                <div id="calendar" class="col-centered">
                 </div>
-            
-            
-                <!-- Events List -->
-                <ul class="events-list" id="draggable_events">
-                    <li>
-                        <p>Arrastra los eventos hacia el calendario al Dia o Dias especificos</p>
-                    </li>                    
-                    <li>
-                        <a href="#" class="color-blue" data-event-class="color-blue">Empezar a producir R4</a>
-                    </li>
-                    <li>
-                        <a href="#" class="color-orange" data-event-class="color-orange">Junta con Almacen y produccion</a>
-                    </li>                    
-                    <li>
-                        <a href="#" class="color-green" data-event-class="color-green">Conferencia Online</a>
-                    </li>
-                </ul>
-                
             </div>
             
+        </div>        
+        <div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form class="form-horizontal" method="POST" action="../php/addEvent.php">        
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar un Evento</h4>
+                  </div>
+                  <div class="modal-body">
+                      <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">Titulo</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="color" class="col-sm-2 control-label">Color</label>
+                        <div class="col-sm-10">
+                          <select name="color" class="form-control" id="color">
+                              <option value="">Selecciona</option>
+                              <option style="color:#0071c5;" value="#0071c5">&#9724; Azul Oscuro</option>
+                              <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquesa</option>
+                              <option style="color:#008000;" value="#008000">&#9724; Verde</option>                       
+                              <option style="color:#FFD700;" value="#FFD700">&#9724; Amarillo</option>
+                              <option style="color:#FF8C00;" value="#FF8C00">&#9724; Anaranjado</option>
+                              <option style="color:#FF0000;" value="#FF0000">&#9724; Rojo</option>
+                              <option style="color:#000;" value="#000">&#9724; Negro</option>
+                              
+                            </select>
+                        </div>
+                      </div>
+                      <div class="form-group" style="display: none;">
+                        <label for="start" class="col-sm-2 control-label">Start date</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="start" class="form-control" id="start" readonly>
+                        </div>
+                      </div>
+                      <div class="form-group" style="display: none">
+                        <label for="end" class="col-sm-2 control-label">End date</label>
+                        <div class="col-sm-10">
+                          <input type="text" name="end" class="form-control" id="end" readonly>
+                        </div>
+                      </div>                  
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                  </div>
+                </form>
+            </div>
+          </div>
         </div>
-            
-        
+        <div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <form class="form-horizontal" method="POST" action="../php/editEventTitle.php">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Agregar Evento</h4>
+              </div>
+              <div class="modal-body">
+                
+                  <div class="form-group">
+                    <label for="title" class="col-sm-2 control-label">Titulo</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="title" class="form-control" id="title" placeholder="Titulo">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="color" class="col-sm-2 control-label">Color</label>
+                    <div class="col-sm-10">
+                      <select name="color" class="form-control" id="color">
+                          <option value="">Selecciona</option>
+                          <option style="color:#0071c5;" value="#0071c5">&#9724; Azul Oscuro</option>
+                          <option style="color:#40E0D0;" value="#40E0D0">&#9724; Turquesa</option>
+                          <option style="color:#008000;" value="#008000">&#9724; Verde</option>                       
+                          <option style="color:#FFD700;" value="#FFD700">&#9724; Amarillo</option>
+                          <option style="color:#FF8C00;" value="#FF8C00">&#9724; Anaranjado</option>
+                          <option style="color:#FF0000;" value="#FF0000">&#9724; Rojo</option>
+                          <option style="color:#000;" value="#000">&#9724; Negro</option>
+                          
+                        </select>
+                    </div>
+                  </div>
+                    <div class="form-group"> 
+                        <div class="col-sm-offset-2 col-sm-10">
+                          <div class="checkbox">
+                            <label class="text-danger"><input type="checkbox"  name="delete"> Eliminar Evento</label>
+                          </div>
+                        </div>
+                    </div>
+                  <input type="hidden" name="id" class="form-control" id="id">                
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+        </div>    
         </div>    
     </div>                
 </div>  
-
         <script>
             var fetch = angular.module('fetch', []);
                 fetch.controller('dbCtrl', function ($scope, $http) {                
@@ -362,7 +422,104 @@
                     });
                 });      
         </script>              
+        <script>
+
+    $(document).ready(function() {
         
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,basicWeek,basicDay'
+            },          
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            selectable: true,
+            selectHelper: true,
+            select: function(start, end) {
+                
+                $('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
+                $('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
+                $('#ModalAdd').modal('show');
+            },
+            eventRender: function(event, element) {
+                element.bind('dblclick', function() {
+                    $('#ModalEdit #id').val(event.id);
+                    $('#ModalEdit #title').val(event.title);
+                    $('#ModalEdit #color').val(event.color);
+                    $('#ModalEdit').modal('show');
+                });
+            },
+            eventDrop: function(event, delta, revertFunc) { // si changement de position
+
+                edit(event);
+
+            },
+            eventResize: function(event,dayDelta,minuteDelta,revertFunc) { // si changement de longueur
+
+                edit(event);
+
+            },
+            events: [
+            <?php foreach($events as $event): 
+            
+                $start = explode(" ", $event['start']);
+                $end = explode(" ", $event['end']);
+                if($start[1] == '00:00:00'){
+                    $start = $start[0];
+                }else{
+                    $start = $event['start'];
+                }
+                if($end[1] == '00:00:00'){
+                    $end = $end[0];
+                }else{
+                    $end = $event['end'];
+                }
+            ?>
+                {
+                    id: '<?php echo $event['id']; ?>',
+                    title: '<?php echo $event['title']; ?>',
+                    start: '<?php echo $start; ?>',
+                    end: '<?php echo $end; ?>',
+                    color: '<?php echo $event['color']; ?>',
+                },
+            <?php endforeach; ?>
+            ]
+        });
+        
+        function edit(event){
+            start = event.start.format('YYYY-MM-DD HH:mm:ss');
+            if(event.end){
+                end = event.end.format('YYYY-MM-DD HH:mm:ss');
+            }else{
+                end = start;
+            }
+            
+            id =  event.id;
+            
+            Event = [];
+            Event[0] = id;
+            Event[1] = start;
+            Event[2] = end;
+            
+            $.ajax({
+             url: 'editEventDate.php',
+             type: "POST",
+             data: {Event:Event},
+             success: function(rep) {
+                    if(rep == 'OK'){
+                        alert('Saved');
+                    }else{
+                        alert('Could not be saved. try again.'); 
+                    }
+                }
+            });
+
+        }
+        
+    });
+
+</script>        
 </body>
 <?php 
 }

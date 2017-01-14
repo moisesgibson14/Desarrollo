@@ -310,6 +310,7 @@
                                     <input type="hidden" name="idusuario" value={{userActual.idUsuarios}} />
                                     <input type="hidden" name="nombreuserdos" value={{userActual.nombre}} />
                                     <input type="hidden" name="correore" value={{userActual.email}} />
+                                    <input type="hidden" name="fotoperfil" value={{perfil.fotoperfil}} />
 
                                     <div class="form-options">                        
                                         <div class="post-type">                
@@ -325,7 +326,7 @@
                                                 <i class="entypo-location"></i>
                                             </a>
                                             <input type="hidden" name="idusuario" value={{perfil.idUsuarios}} />
-                                            
+
                                         </div>                                            
                                     </div>                             
                                 </div>
@@ -420,7 +421,7 @@
                         //$scope.detallediputado=detallediputado;                 
                         $scope.idusuario=iduser;
 
-                        console.log($scope.idusuario);
+                        //console.log($scope.idusuario);
                         });                
                     //console.log($scope.userActual.idUsuarios);                
                 } 
@@ -440,7 +441,7 @@
 					var frm = $("#formChat").serialize();
 					$.ajax({
 						type: "POST",
-						url: "registrer.php",
+						url: "registrerprueba.php",
 						data: frm
 					}).done(function(info){
 						console.log( info );
